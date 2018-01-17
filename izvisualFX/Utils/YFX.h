@@ -12,10 +12,38 @@ typedef void (^YFXActionAnimation)(__weak id obj, float currentValue);
 typedef void (^YFXActionAnimationComplete)(__weak id obj, BOOL is_complete);
 typedef float (^YFXAnimationFunction)(float frame, float begin, float change, float duration, float amplitude, float period);
 
-typedef enum : NSUInteger {
+typedef enum : int {
     YFXLinearEase,
     YFXEaseInQuad,
     YFXEaseOutQuad,
+    YFXEaseInOutQuad,
+    YFXEaseInCubic,
+    YFXEaseOutCubic,
+    YFXEaseInOutCubic,
+    YFXEaseInQuart,
+    YFXeaseOutQuart,
+    YFXEaseInOutQuart,
+    YFXEaseInQuint,
+    YFXEaseOutQuint,
+    YFXEaseInOutQuint,
+    YFXEaseInSine,
+    YFXEaseOutSine,
+    YFXEaseInOutSine,
+    YFXEaseInExpo,
+    YFXEaseOutExpo,
+    YFXEaseInOutExpo,
+    YFXEaseInCirc,
+    YFXEaseOutCirc,
+    YFXEaseInOutCirc,
+    YFXEaseInElastic,
+    YFXEaseOutElastic,
+    YFXEaseInOutElastic,
+    YFXEaseInBack,
+    YFXEaseOutBack,
+    YFXEaseInOutBack,
+    YFXEaseInBounce,
+    YFXEaseOutBounce,
+    YFXEaseInOutBounce
 } YFXEaseType;
 
 @interface YFX : NSObject
@@ -47,10 +75,14 @@ typedef enum : NSUInteger {
                   withAction:(YFXActionAnimation) action
                  withHandler:(YFXActionAnimationComplete) handler;
 
+-(void) setAnimationType:(YFXEaseType) type;
 -(void) startAnimation;
 -(void) stopAnimation;
 -(void) pauseAnimation;
 -(void) resumAnimation;
+
+#pragma mark - Static Function
++(NSString*) animationNameByType:(YFXEaseType) type;
 
 +(float) Random;
 

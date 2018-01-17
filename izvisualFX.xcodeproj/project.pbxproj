@@ -18,6 +18,7 @@
 		65B128F320021B0A00DB4CB4 /* UIColor+FX.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B128E820021B0900DB4CB4 /* UIColor+FX.m */; };
 		65B128F420021B0A00DB4CB4 /* YFX.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B128EC20021B0900DB4CB4 /* YFX.m */; };
 		65B128F520021B0A00DB4CB4 /* YFXSnow.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B128F020021B0A00DB4CB4 /* YFXSnow.m */; };
+		65DB5449200F85AC00F13399 /* AnimateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DB5448200F85AC00F13399 /* AnimateViewController.m */; };
 		65E36BC2200A0E130053F984 /* DrawBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E36BC1200A0E130053F984 /* DrawBoard.m */; };
 		65E36BC5200A0EB70053F984 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E36BC4200A0EB70053F984 /* CoreGraphics.framework */; };
 		65FAA176200B43E700BEFAF8 /* YFXFlyBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FAA175200B43E700BEFAF8 /* YFXFlyBubble.m */; };
@@ -68,6 +69,8 @@
 		65B128EF20021B0A00DB4CB4 /* YFXSnow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFXSnow.h; sourceTree = "<group>"; };
 		65B128F020021B0A00DB4CB4 /* YFXSnow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFXSnow.m; sourceTree = "<group>"; };
 		65B128F120021B0A00DB4CB4 /* 2DView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 2DView.h; sourceTree = "<group>"; };
+		65DB5447200F85AC00F13399 /* AnimateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimateViewController.h; sourceTree = "<group>"; };
+		65DB5448200F85AC00F13399 /* AnimateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimateViewController.m; sourceTree = "<group>"; };
 		65E36BC0200A0E130053F984 /* DrawBoard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawBoard.h; sourceTree = "<group>"; };
 		65E36BC1200A0E130053F984 /* DrawBoard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawBoard.m; sourceTree = "<group>"; };
 		65E36BC4200A0EB70053F984 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -213,6 +216,8 @@
 				65FAA178200B4C6900BEFAF8 /* DemoViewController.m */,
 				65FAA17A200B4C8800BEFAF8 /* TestViewController.h */,
 				65FAA17B200B4C8800BEFAF8 /* TestViewController.m */,
+				65DB5447200F85AC00F13399 /* AnimateViewController.h */,
+				65DB5448200F85AC00F13399 /* AnimateViewController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 				65FAA176200B43E700BEFAF8 /* YFXFlyBubble.m in Sources */,
 				65FAA179200B4C6900BEFAF8 /* DemoViewController.m in Sources */,
 				65B128B720021A6700DB4CB4 /* AppDelegate.m in Sources */,
+				65DB5449200F85AC00F13399 /* AnimateViewController.m in Sources */,
 				65E36BC2200A0E130053F984 /* DrawBoard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

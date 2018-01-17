@@ -22,18 +22,7 @@
     self.view.backgroundColor = [UIColor blackColor];
     self.title = @"Demo";
     [self showDemo];
-    UIView* test = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 50, 50)];
-    test.backgroundColor = [UIColor blueColor];
-    [self.view addSubview:test];
-    YFX* animator = [[YFX alloc] initWithTarget:test];
-    [animator doAnimationWithBegin:100 withEnd:500 withDuration:1.5 withType:YFXEaseOutQuad withAction:^(__weak id obj, float currentValue) {
-        UIView* obj_view = (UIView*) obj;
-        obj_view.frame = CGRectMake(100, currentValue, 50, 50);
-        NSLog(@"Value = %f", currentValue);
-    } withHandler:^(__weak id obj, BOOL is_complete) {
-        NSLog(@"Done");
-    }];
-    [animator startAnimation];
+    
     // Do any additional setup after loading the view.
 }
 

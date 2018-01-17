@@ -47,6 +47,11 @@
     [self setAnimationFunctionWithType:type];
 }
 
+-(void) setAnimationType:(YFXEaseType) type
+{
+    [self setAnimationFunctionWithType:type];
+}
+
 -(void) setAnimationFunctionWithType:(YFXEaseType) type
 {
     switch (type) {
@@ -65,6 +70,118 @@
                 return [YFX YFXEaseOutQuadWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
             break;
+        case YFXEaseInOutQuad:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseInCubic:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseOutCubic:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseInOutCubic:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseInQuart:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXeaseOutQuart:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseInOutQuart:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseInQuint:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseOutQuint:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseInOutQuint:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseInSine:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseOutSine:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseInOutSine:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseInExpo:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseOutExpo:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseInOutExpo:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseInCirc:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseOutCirc:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseInOutCirc:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseInElastic:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseOutElastic:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseInOutElastic:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseInBack:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseOutBack:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseInOutBack:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseInBounce:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseOutBounce:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
+        case YFXEaseInOutBounce:
+            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+                return 0;
+            };
         default:
             break;
     }
@@ -100,6 +217,7 @@
                 else {
                     yfx_action(_yfx_target,yfx_change+yfx_begin);
                     yfx_handler(_yfx_target,true);
+                    yfx_curent_frame = 0;
                 }
             }
         }
@@ -128,6 +246,110 @@
 {
     yfx_is_pause = NO;
     [self animation];
+}
+
+#pragma mark - Static Function
++(NSString*) animationNameByType:(YFXEaseType) type
+{
+    NSString* name = @"YFXLinearEase";
+    switch (type) {
+        case YFXLinearEase:
+            name = @"YFXLinearEase";
+            break;
+        case YFXEaseInQuad:
+            name = @"YFXEaseInQuad";
+            break;
+        case YFXEaseOutQuad:
+            name = @"YFXEaseOutQuad";
+            break;
+        case YFXEaseInOutQuad:
+            name = @"YFXEaseInOutQuad";
+            break;
+        case YFXEaseInCubic:
+            name = @"YFXEaseInCubic";
+            break;
+        case YFXEaseOutCubic:
+            name = @"YFXEaseOutCubic";
+            break;
+        case YFXEaseInOutCubic:
+            name = @"YFXEaseInOutCubic";
+            break;
+        case YFXEaseInQuart:
+            name = @"YFXEaseInQuart";
+            break;
+        case YFXeaseOutQuart:
+            name = @"YFXeaseOutQuart";
+            break;
+        case YFXEaseInOutQuart:
+            name = @"YFXEaseInOutQuart";
+            break;
+        case YFXEaseInQuint:
+            name = @"YFXEaseInQuint";
+            break;
+        case YFXEaseOutQuint:
+            name = @"YFXEaseOutQuint";
+            break;
+        case YFXEaseInOutQuint:
+            name = @"YFXEaseInOutQuint";
+            break;
+        case YFXEaseInSine:
+            name = @"YFXEaseInSine";
+            break;
+        case YFXEaseOutSine:
+            name = @"YFXEaseOutSine";
+            break;
+        case YFXEaseInOutSine:
+            name = @"YFXEaseInOutSine";
+            break;
+        case YFXEaseInExpo:
+            name = @"YFXEaseInExpo";
+            break;
+        case YFXEaseOutExpo:
+            name = @"YFXEaseOutExpo";
+            break;
+        case YFXEaseInOutExpo:
+            name = @"YFXEaseInOutExpo";
+            break;
+        case YFXEaseInCirc:
+            name = @"YFXEaseInCirc";
+            break;
+        case YFXEaseOutCirc:
+            name = @"YFXEaseOutCirc";
+            break;
+        case YFXEaseInOutCirc:
+            name = @"YFXLinearEase";
+            break;
+        case YFXEaseInElastic:
+            name = @"YFXEaseInElastic";
+            break;
+        case YFXEaseOutElastic:
+            name = @"YFXEaseOutElastic";
+            break;
+        case YFXEaseInOutElastic:
+            name = @"YFXEaseInOutElastic";
+            break;
+        case YFXEaseInBack:
+            name = @"YFXEaseInBack";
+            break;
+        case YFXEaseOutBack:
+            name = @"YFXEaseOutBack";
+            break;
+        case YFXEaseInOutBack:
+            name = @"YFXEaseInOutBack";
+            break;
+        case YFXEaseInBounce:
+            name = @"YFXEaseInBounce";
+            break;
+        case YFXEaseOutBounce:
+            name = @"YFXEaseOutBounce";
+            break;
+        case YFXEaseInOutBounce:
+            name = @"YFXEaseInOutBounce";
+            break;
+        default:
+            break;
+    }
+    return name;
 }
 
 +(float) Random

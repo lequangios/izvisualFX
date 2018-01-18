@@ -49,6 +49,7 @@
 
 -(void) setAnimationType:(YFXEaseType) type
 {
+    NSLog(@"Set Type with Name %@ and %d",[YFX animationNameByType:type], type);
     [self setAnimationFunctionWithType:type];
 }
 
@@ -622,12 +623,6 @@
                      withAmplitude:(float) amplitude
                         withPeriod:(float) period
 {
-//    if (frame==0) { return begin; }
-//    ﻿  if ((frame/=duration)==1) { return begin+change; }
-//    ﻿  if (!period) { period=duration*.3; }
-//    ﻿  if (amplitude < Math.abs(change)) {  amplitude=change; s=period/4; }
-//    ﻿  else { amplitude=Math.abs(change); s = period/(2*Math.PI) * Math.asin(change/amplitude);}
-//    ﻿  return -(amplitude*Math.pow(2,10*(frame-=1)) * Math.sin( (frame*duration-s)*(2*Math.PI)/period )) + begin;
     if (frame == 0) return begin;
     frame = frame/duration;
     float s = 0;
@@ -635,8 +630,10 @@
     if(period == 0) period = duration*0.3;
     if(amplitude < fabs(change)) {
         amplitude = change;
+        s = (period/(M_PI*2))*asin(change/amplitude);
     }
-    return 0;
+    frame = frame - 1;
+    return -(amplitude*pow(2, 10*frame))*sin((frame*duration-s)*(2*M_PI)/period + begin);
 }
 
 +(float) YFXEaseOutElasticWithFrame:(float) frame
@@ -646,13 +643,19 @@
                       withAmplitude:(float) amplitude
                          withPeriod:(float) period
 {
-    /*
-     if (frame==0) return begin;  if ((frame/=duration)==1) return begin+change;  if (!period) period=duration*.3;
-     ﻿  if (amplitude < Math.abs(change)) { amplitude=change; var s=period/4; }
-     ﻿  else {   amplitude=Math.abs(change); var s = period/(2*Math.PI) * Math.asin (change/amplitude);}
-     ﻿  return amplitude*Math.pow(2,-10*frame) * Math.sin( (frame*duration-s)*(2*Math.PI)/period ) + change + begin;
-     */
-    return 0;
+    if (frame == 0) return begin;
+    frame = frame/duration;
+    if(frame == 1) return begin+change;
+    if(period == 0) period = duration*0.3;
+    float s = 0;
+    if(amplitude < fabs(change)) {
+        amplitude = change;
+        s = period/4;
+    }else {
+        amplitude = fabs(change);
+        s = period/(2*M_PI)*asin(change/amplitude);
+    }
+    return amplitude*pow(2, -10*frame)*sin((frame*duration-s)*(2*M_PI)/period) + change + begin;
 }
 
 +(float) YFXEaseInOutElasticWithFrame:(float) frame
@@ -662,16 +665,22 @@
                         withAmplitude:(float) amplitude
                            withPeriod:(float) period
 {
-    /*
-     if (frame==0) return begin;
-     ﻿  if ((frame/=duration/2)==2) return begin+change;
-     ﻿  if (!period) period=duration*(.3*1.5);
-     ﻿  if (amplitude < Math.abs(change)) { amplitude=change; var s=period/4; }
-     ﻿  else {amplitude=Math.abs(change);var s = period/(2*Math.PI) * Math.asin (change/amplitude);}
-     ﻿  if (frame < 1) {return -.5*(amplitude*Math.pow(2,10*(frame-=1)) * Math.sin( (frame*duration-s)*(2*Math.PI)/period )) + begin;}
-     ﻿  return amplitude*Math.pow(2,-10*(frame-=1)) * Math.sin( (frame*duration-s)*(2*Math.PI)/period )*.5 + change + begin;
-     */
-    return 0;
+    if(frame == 0) return begin;
+    frame = frame/(duration/2);
+    if(frame == 2) return begin + change;
+    if(period == 0) period = duration*0.3*1.5;
+    float s = 0;
+    if(amplitude < fabs(change)){
+        amplitude = change;
+        s = period/4;
+    }
+    else{
+        amplitude = fabsf(change);
+        s = period/(2*M_PI)*asin(change/amplitude);
+    }
+    frame = frame - 1;
+    if(frame < 1) return -0.5*(amplitude*pow(2, 10*frame)*sin((frame*duration-s)*(2*M_PI)/period))+begin;
+    return begin + change + amplitude*pow(2,-10*frame)*sin((frame*duration-2)*(2*M_PI)/period)*0.5;
 }
 
 +(float) YFXEaseInBackWithFrame:(float) frame
@@ -681,11 +690,9 @@
                   withAmplitude:(float) amplitude
                      withPeriod:(float) period
 {
-    /*
-     if (s == undefined) s = 1.70158;
-     ﻿  return change*(frame/=duration)*frame*((s+1)*frame - s) + begin;
-     */
-    return 0;
+    float s = 1.70158;
+    frame = frame/duration;
+    return change*frame*frame*((s+1)*frame - s) + begin;
 }
 
 +(float) YFXEaseOutBackWithFrame:(float) frame
@@ -695,11 +702,9 @@
                    withAmplitude:(float) amplitude
                       withPeriod:(float) period
 {
-    /*
-     if (s == undefined) s = 1.70158;
-     ﻿  return change*((frame=frame/duration-1)*frame*((s+1)*frame + s) + 1) + begin;
-     */
-    return 0;
+    float s = 1.70158;
+    frame = frame/duration;
+    return change*((frame-1)*frame*((s+1)*frame+s)+1) +begin;
 }
 
 +(float) YFXEaseInOutBackWithFrame:(float) frame
@@ -709,12 +714,11 @@
                      withAmplitude:(float) amplitude
                         withPeriod:(float) period
 {
-    /*
-     if (s == undefined) s = 1.70158;
-     ﻿  if ((frame/=duration/2) < 1) return change/2*(frame*frame*(((s*=(1.525))+1)*frame - s)) + begin;
-     ﻿  return change/2*((frame-=2)*frame*(((s*=(1.525))+1)*frame + s) + 2) + begin;
-     */
-    return 0;
+    float s = 1.70158*1.525;
+    frame = frame/(duration/2);
+    if(frame < 1) return change/2*(frame*frame*((s+1)*frame - s)) + begin;
+    frame = frame - 2;
+    return change/2*(frame*frame*((s+1)*frame+s) +2) + begin;
 }
 
 +(float) YFXEaseInBounceWithFrame:(float) frame

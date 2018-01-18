@@ -123,7 +123,7 @@ numberOfRowsInComponent:(NSInteger)component {
 
 - (nullable NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component {
     UIColor* color = [UIColor whiteColor];
-    current_type = (int32_t)row;
+    current_type = (int32_t)row-1;
     NSString* title = [NSString stringWithFormat:@"%@",[YFX animationNameByType:current_type]];
     NSAttributedString* att = [[NSAttributedString alloc] initWithString:title attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:10],
                                                                                             NSForegroundColorAttributeName: color}];

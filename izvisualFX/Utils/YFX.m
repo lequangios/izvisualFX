@@ -72,115 +72,115 @@
             break;
         case YFXEaseInOutQuad:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseInOutQuadWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInCubic:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseInCubicWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseOutCubic:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseOutCubicWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInOutCubic:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseInOutCubicWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInQuart:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseInQuartWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXeaseOutQuart:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXeaseOutQuartWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInOutQuart:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseInOutQuartWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInQuint:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseInQuintWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseOutQuint:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseOutQuintWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInOutQuint:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseInOutQuintWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInSine:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseInSineWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseOutSine:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseOutSineWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInOutSine:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseInOutSineWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInExpo:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseInExpoWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseOutExpo:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseOutExpoWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInOutExpo:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseInOutExpoWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInCirc:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseInCircWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseOutCirc:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseOutCircWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInOutCirc:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseInOutCircWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInElastic:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseInElasticWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseOutElastic:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseOutElasticWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInOutElastic:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseInOutElasticWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInBack:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseInBackWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseOutBack:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseOutBackWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInOutBack:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseInOutBackWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInBounce:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseInBounceWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseOutBounce:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseOutBounceWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInOutBounce:
             yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
-                return 0;
+                return [YFX YFXEaseInOutBounceWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         default:
             break;
@@ -519,8 +519,7 @@
                   withAmplitude:(float) amplitude
                      withPeriod:(float) period
 {
-    return 0;
-//    return -change * cos(frame/duration * (Math.PI/2)) + change + begin;
+    return -change*cos((frame/duration)*M_PI/2) + change + begin;
 }
 
 +(float) YFXEaseOutSineWithFrame:(float) frame
@@ -530,7 +529,7 @@
                    withAmplitude:(float) amplitude
                       withPeriod:(float) period
 {
-    return 0;
+    return change*sin((frame/duration)*M_PI/2) + begin;
 }
 
 +(float) YFXEaseInOutSineWithFrame:(float) frame
@@ -540,7 +539,7 @@
                      withAmplitude:(float) amplitude
                         withPeriod:(float) period
 {
-    return 0;
+    return (-change/2)*(cos(M_PI*frame/duration)-1) + begin;
 }
 
 +(float) YFXEaseInExpoWithFrame:(float) frame
@@ -550,7 +549,10 @@
                   withAmplitude:(float) amplitude
                      withPeriod:(float) period
 {
-    return 0;
+    if (frame == 0) return begin;
+    else {
+        return change*(pow(2, 10*frame/duration)-1) + begin;
+    }
 }
 
 +(float) YFXEaseOutExpoWithFrame:(float) frame
@@ -560,7 +562,8 @@
                    withAmplitude:(float) amplitude
                       withPeriod:(float) period
 {
-    return 0;
+    if (frame == duration) return begin+change;
+    else return change*(-pow(2, -10*frame/duration)+1) + begin;
 }
 
 +(float) YFXEaseInOutExpoWithFrame:(float) frame
@@ -570,7 +573,11 @@
                      withAmplitude:(float) amplitude
                         withPeriod:(float) period
 {
-    return 0;
+    if(frame == 0) return begin;
+    if(frame == duration) return begin+change;
+    frame = frame / (duration/2);
+    if (frame < 1) return (change/2)*pow(2, 10*(frame-1)) + begin;
+    return (change/2)*(pow(2, -10*(frame-1))) + begin;
 }
 
 +(float) YFXEaseInCircWithFrame:(float) frame
@@ -580,7 +587,8 @@
                   withAmplitude:(float) amplitude
                      withPeriod:(float) period
 {
-    return 0;
+    frame = frame/duration;
+    return -change*(sqrt(1-frame*frame)-1) + begin;
 }
 
 +(float) YFXEaseOutCircWithFrame:(float) frame
@@ -590,7 +598,8 @@
                    withAmplitude:(float) amplitude
                       withPeriod:(float) period
 {
-    return 0;
+    frame = frame/duration-1;
+    return change * sqrt(1-frame*frame) + begin;
 }
 
 +(float) YFXEaseInOutCircWithFrame:(float) frame
@@ -600,7 +609,10 @@
                      withAmplitude:(float) amplitude
                         withPeriod:(float) period
 {
-    return 0;
+    frame = frame/(duration/2);
+    if (frame < 1) return (-change/2)*(sqrt(1-frame*frame) -1) + begin;
+    frame = frame - 2;
+    return (change/2)*(sqrt(1-frame*frame)+1) + begin;
 }
 
 +(float) YFXEaseInElasticWithFrame:(float) frame
@@ -610,6 +622,20 @@
                      withAmplitude:(float) amplitude
                         withPeriod:(float) period
 {
+//    if (frame==0) { return begin; }
+//    ﻿  if ((frame/=duration)==1) { return begin+change; }
+//    ﻿  if (!period) { period=duration*.3; }
+//    ﻿  if (amplitude < Math.abs(change)) {  amplitude=change; s=period/4; }
+//    ﻿  else { amplitude=Math.abs(change); s = period/(2*Math.PI) * Math.asin(change/amplitude);}
+//    ﻿  return -(amplitude*Math.pow(2,10*(frame-=1)) * Math.sin( (frame*duration-s)*(2*Math.PI)/period )) + begin;
+    if (frame == 0) return begin;
+    frame = frame/duration;
+    float s = 0;
+    if(frame == 1) return begin+duration;
+    if(period == 0) period = duration*0.3;
+    if(amplitude < fabs(change)) {
+        amplitude = change;
+    }
     return 0;
 }
 
@@ -620,6 +646,12 @@
                       withAmplitude:(float) amplitude
                          withPeriod:(float) period
 {
+    /*
+     if (frame==0) return begin;  if ((frame/=duration)==1) return begin+change;  if (!period) period=duration*.3;
+     ﻿  if (amplitude < Math.abs(change)) { amplitude=change; var s=period/4; }
+     ﻿  else {   amplitude=Math.abs(change); var s = period/(2*Math.PI) * Math.asin (change/amplitude);}
+     ﻿  return amplitude*Math.pow(2,-10*frame) * Math.sin( (frame*duration-s)*(2*Math.PI)/period ) + change + begin;
+     */
     return 0;
 }
 
@@ -630,6 +662,15 @@
                         withAmplitude:(float) amplitude
                            withPeriod:(float) period
 {
+    /*
+     if (frame==0) return begin;
+     ﻿  if ((frame/=duration/2)==2) return begin+change;
+     ﻿  if (!period) period=duration*(.3*1.5);
+     ﻿  if (amplitude < Math.abs(change)) { amplitude=change; var s=period/4; }
+     ﻿  else {amplitude=Math.abs(change);var s = period/(2*Math.PI) * Math.asin (change/amplitude);}
+     ﻿  if (frame < 1) {return -.5*(amplitude*Math.pow(2,10*(frame-=1)) * Math.sin( (frame*duration-s)*(2*Math.PI)/period )) + begin;}
+     ﻿  return amplitude*Math.pow(2,-10*(frame-=1)) * Math.sin( (frame*duration-s)*(2*Math.PI)/period )*.5 + change + begin;
+     */
     return 0;
 }
 
@@ -640,6 +681,10 @@
                   withAmplitude:(float) amplitude
                      withPeriod:(float) period
 {
+    /*
+     if (s == undefined) s = 1.70158;
+     ﻿  return change*(frame/=duration)*frame*((s+1)*frame - s) + begin;
+     */
     return 0;
 }
 
@@ -650,6 +695,10 @@
                    withAmplitude:(float) amplitude
                       withPeriod:(float) period
 {
+    /*
+     if (s == undefined) s = 1.70158;
+     ﻿  return change*((frame=frame/duration-1)*frame*((s+1)*frame + s) + 1) + begin;
+     */
     return 0;
 }
 
@@ -660,6 +709,11 @@
                      withAmplitude:(float) amplitude
                         withPeriod:(float) period
 {
+    /*
+     if (s == undefined) s = 1.70158;
+     ﻿  if ((frame/=duration/2) < 1) return change/2*(frame*frame*(((s*=(1.525))+1)*frame - s)) + begin;
+     ﻿  return change/2*((frame-=2)*frame*(((s*=(1.525))+1)*frame + s) + 2) + begin;
+     */
     return 0;
 }
 
@@ -670,6 +724,7 @@
                     withAmplitude:(float) amplitude
                        withPeriod:(float) period
 {
+    //return change - easeOutBounce (duration-frame, 0, change, duration) + begin;
     return 0;
 }
 
@@ -680,6 +735,12 @@
                      withAmplitude:(float) amplitude
                         withPeriod:(float) period
 {
+    /*
+     if ((frame/=duration) < (1/2.75)) { return change*(7.5625*frame*frame) + begin;}
+     ﻿  else if (frame < (2/2.75)) { return change*(7.5625*(frame-=(1.5/2.75))*frame + .75) + begin;}
+     ﻿  else if (frame < (2.5/2.75)) { return change*(7.5625*(frame-=(2.25/2.75))*frame + .9375) + begin;}
+     ﻿  else { return change*(7.5625*(frame-=(2.625/2.75))*frame + .984375) + begin; }
+     */
     return 0;
 }
 
@@ -690,6 +751,10 @@
                        withAmplitude:(float) amplitude
                           withPeriod:(float) period
 {
+    /*
+     if (frame < duration/2) return easeInBounce (frame*2, 0, change, duration) * .5 + begin;
+     ﻿  return easeOutBounce (frame*2-duration, 0, change, duration) * .5 +  .5 + begin;
+     */
     return 0;
 }
 @end

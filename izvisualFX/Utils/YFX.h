@@ -60,11 +60,11 @@ typedef enum : int {
     int yfx_curent_frame;
     BOOL yfx_is_pause;
     BOOL yfx_is_stop;
-    YFXAnimationFunction yfx_function;
     YFXActionAnimation yfx_action;
     YFXActionAnimationComplete yfx_handler;
 }
 @property(nonatomic,weak) id yfx_target;
+@property(nonatomic,assign) YFXAnimationFunction yfx_function;
 
 -(instancetype) initWithTarget:(id) target;
 

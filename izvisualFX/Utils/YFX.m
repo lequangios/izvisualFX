@@ -9,7 +9,8 @@
 
 @implementation YFX
 
-@synthesize yfx_target = _yfx_target;
+@synthesize yfx_target      = _yfx_target;
+@synthesize yfx_function    = _yfx_function;
 
 -(instancetype) initWithTarget:(id) target
 {
@@ -49,7 +50,6 @@
 
 -(void) setAnimationType:(YFXEaseType) type
 {
-    NSLog(@"Set Type with Name %@ and %d",[YFX animationNameByType:type], type);
     [self setAnimationFunctionWithType:type];
 }
 
@@ -57,130 +57,130 @@
 {
     switch (type) {
         case YFXLinearEase:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period) {
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period) {
                 return [YFX YFXLinearEaseWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
             break;
         case YFXEaseInQuad:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period) {
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period) {
                 return [YFX YFXEaseInQuadWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
             break;
         case YFXEaseOutQuad:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period) {
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period) {
                 return [YFX YFXEaseOutQuadWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
             break;
         case YFXEaseInOutQuad:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseInOutQuadWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInCubic:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseInCubicWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseOutCubic:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseOutCubicWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInOutCubic:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseInOutCubicWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInQuart:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseInQuartWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXeaseOutQuart:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXeaseOutQuartWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInOutQuart:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseInOutQuartWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInQuint:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseInQuintWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseOutQuint:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseOutQuintWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInOutQuint:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseInOutQuintWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInSine:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseInSineWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseOutSine:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseOutSineWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInOutSine:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseInOutSineWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInExpo:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseInExpoWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseOutExpo:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseOutExpoWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInOutExpo:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseInOutExpoWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInCirc:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseInCircWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseOutCirc:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseOutCircWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInOutCirc:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseInOutCircWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInElastic:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseInElasticWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseOutElastic:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseOutElasticWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInOutElastic:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseInOutElasticWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInBack:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseInBackWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseOutBack:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseOutBackWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInOutBack:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseInOutBackWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInBounce:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseInBounceWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseOutBounce:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseOutBounceWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         case YFXEaseInOutBounce:
-            yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
+            _yfx_function = ^float(float frame, float begin, float change, float duration, float amplitude, float period){
                 return [YFX YFXEaseInOutBounceWithFrame:frame withBegin:begin withChange:change withDuration:duration withAmplitude:amplitude withPeriod:period];
             };
         default:
@@ -194,7 +194,7 @@
     {
         if (yfx_is_pause == YES)
         {
-            float value = yfx_function(yfx_curent_frame*yfx_delta_time, yfx_begin, yfx_change, yfx_duration, yfx_amplitude, yfx_period);
+            float value = _yfx_function(yfx_curent_frame*yfx_delta_time, yfx_begin, yfx_change, yfx_duration, yfx_amplitude, yfx_period);
             yfx_action(_yfx_target,value);
             yfx_handler(_yfx_target,false);
         }
@@ -210,7 +210,7 @@
             {
                 if(yfx_curent_frame < yfx_frame)
                 {
-                    float value = yfx_function(yfx_curent_frame*yfx_delta_time, yfx_begin, yfx_change, yfx_duration, yfx_amplitude, yfx_period);
+                    float value = _yfx_function(yfx_curent_frame*yfx_delta_time, yfx_begin, yfx_change, yfx_duration, yfx_amplitude, yfx_period);
                     yfx_action(_yfx_target,value);
                     [self performSelector:@selector(animation) withObject:nil afterDelay:yfx_interval];
                     yfx_curent_frame = yfx_curent_frame + 1;
@@ -728,8 +728,7 @@
                     withAmplitude:(float) amplitude
                        withPeriod:(float) period
 {
-    //return change - easeOutBounce (duration-frame, 0, change, duration) + begin;
-    return 0;
+    return change - [YFX YFXEaseOutBounceWithFrame:duration-frame withBegin:0 withChange:change withDuration:duration withAmplitude:0 withPeriod:0];
 }
 
 +(float) YFXEaseOutBounceWithFrame:(float) frame
@@ -739,13 +738,18 @@
                      withAmplitude:(float) amplitude
                         withPeriod:(float) period
 {
-    /*
-     if ((frame/=duration) < (1/2.75)) { return change*(7.5625*frame*frame) + begin;}
-     ﻿  else if (frame < (2/2.75)) { return change*(7.5625*(frame-=(1.5/2.75))*frame + .75) + begin;}
-     ﻿  else if (frame < (2.5/2.75)) { return change*(7.5625*(frame-=(2.25/2.75))*frame + .9375) + begin;}
-     ﻿  else { return change*(7.5625*(frame-=(2.625/2.75))*frame + .984375) + begin; }
-     */
-    return 0;
+    frame = frame/duration;
+    if(frame < 1/2.75) return 7.5625*change*frame*frame + begin;
+    else if(frame < 2/2.75) {
+        frame = frame - (1.5/2.75);
+        return change*(7.5625*frame*frame + 0.75) + begin;
+    }
+    else if(frame < 2.5/2.75){
+        frame = frame - 2.25/2.75;
+        return change*(7.5625*frame*frame + 0.9375) + begin;
+    }
+    frame = frame - 2.625/2.75;
+    return change*(7.5625*frame*frame + 0.984375) + begin;
 }
 
 +(float) YFXEaseInOutBounceWithFrame:(float) frame
@@ -755,10 +759,8 @@
                        withAmplitude:(float) amplitude
                           withPeriod:(float) period
 {
-    /*
-     if (frame < duration/2) return easeInBounce (frame*2, 0, change, duration) * .5 + begin;
-     ﻿  return easeOutBounce (frame*2-duration, 0, change, duration) * .5 +  .5 + begin;
-     */
-    return 0;
+    if(frame < duration/2) return [YFX YFXEaseInBounceWithFrame:frame*2 withBegin:0 withChange:change withDuration:duration withAmplitude:0 withPeriod:0]*0.5 + begin;
+    return [YFX YFXEaseOutBounceWithFrame:frame*2-duration withBegin:0 withChange:change withDuration:duration withAmplitude:0 withPeriod:0]*0.5 + 0.5 + begin;
 }
+
 @end

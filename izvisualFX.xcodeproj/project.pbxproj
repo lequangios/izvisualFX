@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		631742782011E85E0085DFE2 /* MovingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 631742772011E85E0085DFE2 /* MovingViewController.m */; };
 		65B128B720021A6700DB4CB4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B128B620021A6700DB4CB4 /* AppDelegate.m */; };
 		65B128BA20021A6700DB4CB4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B128B920021A6700DB4CB4 /* ViewController.m */; };
 		65B128BD20021A6700DB4CB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B128BB20021A6700DB4CB4 /* Main.storyboard */; };
@@ -44,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		631742762011E85E0085DFE2 /* MovingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovingViewController.h; sourceTree = "<group>"; };
+		631742772011E85E0085DFE2 /* MovingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovingViewController.m; sourceTree = "<group>"; };
 		65B128B220021A6700DB4CB4 /* izvisualFX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = izvisualFX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B128B520021A6700DB4CB4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		65B128B620021A6700DB4CB4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -108,6 +111,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		631742752011E8150085DFE2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				65FAA177200B4C6900BEFAF8 /* DemoViewController.h */,
+				65FAA178200B4C6900BEFAF8 /* DemoViewController.m */,
+				65FAA17A200B4C8800BEFAF8 /* TestViewController.h */,
+				65FAA17B200B4C8800BEFAF8 /* TestViewController.m */,
+				65DB5447200F85AC00F13399 /* AnimateViewController.h */,
+				65DB5448200F85AC00F13399 /* AnimateViewController.m */,
+				631742762011E85E0085DFE2 /* MovingViewController.h */,
+				631742772011E85E0085DFE2 /* MovingViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		65B128A920021A6700DB4CB4 = {
 			isa = PBXGroup;
 			children = (
@@ -212,12 +230,7 @@
 				65B128B620021A6700DB4CB4 /* AppDelegate.m */,
 				65B128B820021A6700DB4CB4 /* ViewController.h */,
 				65B128B920021A6700DB4CB4 /* ViewController.m */,
-				65FAA177200B4C6900BEFAF8 /* DemoViewController.h */,
-				65FAA178200B4C6900BEFAF8 /* DemoViewController.m */,
-				65FAA17A200B4C8800BEFAF8 /* TestViewController.h */,
-				65FAA17B200B4C8800BEFAF8 /* TestViewController.m */,
-				65DB5447200F85AC00F13399 /* AnimateViewController.h */,
-				65DB5448200F85AC00F13399 /* AnimateViewController.m */,
+				631742752011E8150085DFE2 /* Controller */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -363,6 +376,7 @@
 				65B128C520021A6700DB4CB4 /* main.m in Sources */,
 				65FAA176200B43E700BEFAF8 /* YFXFlyBubble.m in Sources */,
 				65FAA179200B4C6900BEFAF8 /* DemoViewController.m in Sources */,
+				631742782011E85E0085DFE2 /* MovingViewController.m in Sources */,
 				65B128B720021A6700DB4CB4 /* AppDelegate.m in Sources */,
 				65DB5449200F85AC00F13399 /* AnimateViewController.m in Sources */,
 				65E36BC2200A0E130053F984 /* DrawBoard.m in Sources */,

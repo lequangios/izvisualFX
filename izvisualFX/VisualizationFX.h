@@ -9,5 +9,6 @@
 #define VisualizationFX_h
 
 #import "2DView.h"
+#import "3DView.h"
 
 #endif /* VisualizationFX_h */

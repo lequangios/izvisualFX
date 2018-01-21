@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		631742782011E85E0085DFE2 /* MovingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 631742772011E85E0085DFE2 /* MovingViewController.m */; };
+		65344338201239C90091EDCF /* SphereView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65344337201239C90091EDCF /* SphereView.m */; };
+		6534433B201241820091EDCF /* yfxSphere.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6534433A201241820091EDCF /* yfxSphere.vsh */; };
+		6534433D201242380091EDCF /* yfxSphere.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6534433C201242380091EDCF /* yfxSphere.fsh */; };
 		65B128B720021A6700DB4CB4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B128B620021A6700DB4CB4 /* AppDelegate.m */; };
 		65B128BA20021A6700DB4CB4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B128B920021A6700DB4CB4 /* ViewController.m */; };
 		65B128BD20021A6700DB4CB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B128BB20021A6700DB4CB4 /* Main.storyboard */; };
@@ -22,6 +25,7 @@
 		65DB5449200F85AC00F13399 /* AnimateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DB5448200F85AC00F13399 /* AnimateViewController.m */; };
 		65E36BC2200A0E130053F984 /* DrawBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E36BC1200A0E130053F984 /* DrawBoard.m */; };
 		65E36BC5200A0EB70053F984 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E36BC4200A0EB70053F984 /* CoreGraphics.framework */; };
+		65F5DE382014AE7600489DEF /* YFXMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F5DE372014AE7600489DEF /* YFXMatrix.m */; };
 		65FAA176200B43E700BEFAF8 /* YFXFlyBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FAA175200B43E700BEFAF8 /* YFXFlyBubble.m */; };
 		65FAA179200B4C6900BEFAF8 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FAA178200B4C6900BEFAF8 /* DemoViewController.m */; };
 		65FAA17C200B4C8800BEFAF8 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FAA17B200B4C8800BEFAF8 /* TestViewController.m */; };
@@ -47,6 +51,11 @@
 /* Begin PBXFileReference section */
 		631742762011E85E0085DFE2 /* MovingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovingViewController.h; sourceTree = "<group>"; };
 		631742772011E85E0085DFE2 /* MovingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovingViewController.m; sourceTree = "<group>"; };
+		653443352012394B0091EDCF /* 3DView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 3DView.h; sourceTree = "<group>"; };
+		65344336201239C90091EDCF /* SphereView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SphereView.h; sourceTree = "<group>"; };
+		65344337201239C90091EDCF /* SphereView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SphereView.m; sourceTree = "<group>"; };
+		6534433A201241820091EDCF /* yfxSphere.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = yfxSphere.vsh; sourceTree = "<group>"; };
+		6534433C201242380091EDCF /* yfxSphere.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = yfxSphere.fsh; sourceTree = "<group>"; };
 		65B128B220021A6700DB4CB4 /* izvisualFX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = izvisualFX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B128B520021A6700DB4CB4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		65B128B620021A6700DB4CB4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -77,6 +86,8 @@
 		65E36BC0200A0E130053F984 /* DrawBoard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawBoard.h; sourceTree = "<group>"; };
 		65E36BC1200A0E130053F984 /* DrawBoard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawBoard.m; sourceTree = "<group>"; };
 		65E36BC4200A0EB70053F984 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		65F5DE362014AE7600489DEF /* YFXMatrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YFXMatrix.h; sourceTree = "<group>"; };
+		65F5DE372014AE7600489DEF /* YFXMatrix.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YFXMatrix.m; sourceTree = "<group>"; };
 		65FAA174200B43E700BEFAF8 /* YFXFlyBubble.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YFXFlyBubble.h; sourceTree = "<group>"; };
 		65FAA175200B43E700BEFAF8 /* YFXFlyBubble.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YFXFlyBubble.m; sourceTree = "<group>"; };
 		65FAA177200B4C6900BEFAF8 /* DemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
@@ -126,6 +137,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		653443392012412D0091EDCF /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				6534433A201241820091EDCF /* yfxSphere.vsh */,
+				6534433C201242380091EDCF /* yfxSphere.fsh */,
+			);
+			path = Shader;
+			sourceTree = "<group>";
+		};
 		65B128A920021A6700DB4CB4 = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +170,7 @@
 		65B128B420021A6700DB4CB4 /* izvisualFX */ = {
 			isa = PBXGroup;
 			children = (
+				653443392012412D0091EDCF /* Shader */,
 				65B128ED20021B0900DB4CB4 /* VisualizationFX.h */,
 				65B128EE20021B0A00DB4CB4 /* 2D */,
 				65B128F220021B0A00DB4CB4 /* 3D */,
@@ -190,6 +211,8 @@
 				65B128EA20021B0900DB4CB4 /* YFX.h */,
 				65B128EC20021B0900DB4CB4 /* YFX.m */,
 				65B128E920021B0900DB4CB4 /* Utils.h */,
+				65F5DE362014AE7600489DEF /* YFXMatrix.h */,
+				65F5DE372014AE7600489DEF /* YFXMatrix.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -211,6 +234,9 @@
 		65B128F220021B0A00DB4CB4 /* 3D */ = {
 			isa = PBXGroup;
 			children = (
+				653443352012394B0091EDCF /* 3DView.h */,
+				65344336201239C90091EDCF /* SphereView.h */,
+				65344337201239C90091EDCF /* SphereView.m */,
 			);
 			path = 3D;
 			sourceTree = "<group>";
@@ -341,8 +367,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6534433D201242380091EDCF /* yfxSphere.fsh in Resources */,
 				65B128C220021A6700DB4CB4 /* LaunchScreen.storyboard in Resources */,
 				65B128BF20021A6700DB4CB4 /* Assets.xcassets in Resources */,
+				6534433B201241820091EDCF /* yfxSphere.vsh in Resources */,
 				65B128BD20021A6700DB4CB4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65F5DE382014AE7600489DEF /* YFXMatrix.m in Sources */,
 				65B128BA20021A6700DB4CB4 /* ViewController.m in Sources */,
 				65B128F420021B0A00DB4CB4 /* YFX.m in Sources */,
 				65B128F520021B0A00DB4CB4 /* YFXSnow.m in Sources */,
@@ -375,6 +404,7 @@
 				65FAA17C200B4C8800BEFAF8 /* TestViewController.m in Sources */,
 				65B128C520021A6700DB4CB4 /* main.m in Sources */,
 				65FAA176200B43E700BEFAF8 /* YFXFlyBubble.m in Sources */,
+				65344338201239C90091EDCF /* SphereView.m in Sources */,
 				65FAA179200B4C6900BEFAF8 /* DemoViewController.m in Sources */,
 				631742782011E85E0085DFE2 /* MovingViewController.m in Sources */,
 				65B128B720021A6700DB4CB4 /* AppDelegate.m in Sources */,

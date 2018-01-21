@@ -19,11 +19,13 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if(self){
         is_touch_down = NO;
+        is_show_menu = NO;
         is_auto_complete_start = NO;
         is_auto_complete_end = YES;
         snap_to = 0;
-        snap_end = 500;
-        snap_start = 80;
+        snap_end = 250;
+        snap_start = 10;
+        direction = 0;
     }
     return self;
 }
@@ -33,7 +35,7 @@
     self.view.frame = [UIScreen mainScreen].bounds;
     self.view.backgroundColor = [UIColor blackColor];
     
-    self.movingBlock = [[UIView alloc] initWithFrame:CGRectMake(20, 80, 100, 100)];
+    self.movingBlock = [[UIView alloc] initWithFrame:CGRectMake(-snap_end, 64, snap_end, self.view.frame.size.height-64)];
     self.movingBlock.backgroundColor = [UIColor blueColor];
     [self.view addSubview:self.movingBlock];
 }
@@ -52,24 +54,56 @@
 //MARK: Private Handler Touch
 -(void) touchBegin:(UITouch*) touch
 {
-    is_touch_down = YES;
     current_point = [touch locationInView:self.view];
+    if(is_show_menu == YES)
+    {
+        if (current_point.x > snap_end) {
+            is_touch_down = YES;
+        }
+    }
+    else is_touch_down = YES;
+    
 }
 
 -(void) touchMove:(UITouch*) touch
 {
-    if(is_touch_down == YES)
+    if(is_touch_down == YES && is_auto_complete_start == NO)
     {
         CGPoint point = [touch locationInView:self.view];
-        float dx = point.x - current_point.x;
-        float dy = point.y - current_point.y;
+        direction = point.x - current_point.x;
+        float dx = direction + self.movingBlock.frame.origin.x;
         current_point = point;
-        self.movingBlock.frame = CGRectMake(self.movingBlock.frame.origin.x+dx, self.movingBlock.frame.origin.y + dy, 100, 100);
+        if (dx <= 0) {
+            self.movingBlock.frame = CGRectMake(dx, self.movingBlock.frame.origin.y, snap_end, self.view.frame.size.height-64);
+        }
+        else {
+            is_show_menu = YES;
+        }
     }
 }
 
 -(void) touchEnd:(UITouch*) touch
 {
+    // Hide it
+    if(direction < -snap_start) {
+        is_auto_complete_start = YES;
+        [UIView animateWithDuration:0.2 animations:^{
+            self.movingBlock.frame = CGRectMake(-snap_end, self.movingBlock.frame.origin.y, snap_end, self.view.frame.size.height-64);
+        } completion:^(BOOL finished) {
+            is_auto_complete_start = NO;
+            is_show_menu = NO;
+        }];
+    }
+    else if(direction > snap_start) {
+        is_auto_complete_start = YES;
+        [UIView animateWithDuration:0.2 animations:^{
+            self.movingBlock.frame = CGRectMake(0, self.movingBlock.frame.origin.y, snap_end, self.view.frame.size.height-64);
+        } completion:^(BOOL finished) {
+            is_auto_complete_start = NO;
+            is_show_menu = YES;
+        }];
+    }
+    
     is_touch_down = NO;
 }
 

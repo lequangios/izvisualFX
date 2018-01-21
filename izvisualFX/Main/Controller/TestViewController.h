@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VisualizationFX.h"
 
 @interface TestViewController : UIViewController
+
+@property(nonatomic, retain) SphereView* sphere;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "TestViewController.h"
-#import "VisualizationFX.h"
+
 #import "YFX.h"
 
 @interface TestViewController ()
@@ -15,6 +15,8 @@
 @end
 
 @implementation TestViewController
+
+@synthesize sphere = _sphere;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,9 +41,8 @@
 
 -(void) showDemo
 {
-    YFXSnow* view = [[YFXSnow alloc] initWithFrame:CGRectMake(0, 44, self.view.frame.size.width, self.view.frame.size.height-44) andMaxItem:45];
-    [self.view addSubview:view];
-    [view startAnimation];
+    _sphere = [[SphereView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-64)];
+    [self.view addSubview:_sphere];
 }
 
 /*

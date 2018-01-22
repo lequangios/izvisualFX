@@ -14,6 +14,24 @@
     float span;
     float tilt;
     float zoom;
+    float radius;
+    float width;
+    float height;
+    float aspect;
+    float direction;
+    
+    float *textureCoordData;
+    float *verticesPosition;
+    int *verticesIndexData;
+    int totalTextureCoord;
+    int totalVerticesPosition;
+    int totalVerticesIndex;
+    
+    int latitudeBands;
+    int longitudeBands;
+    
+    GLuint verticesPositionBuffer;
+    GLint textureCoordBuffer;
     
     CAEAGLLayer* _eaglLayer;
     EAGLContext* _context;
@@ -31,6 +49,7 @@
 -(void) setupFrameBuffer;
 -(void) render;
 
+-(void) initDefaultOpenGLData;
 -(void) initOpenGLContext;
 -(void) setupOpenGLViewport;
 -(void) setupOpenGLMatrix;

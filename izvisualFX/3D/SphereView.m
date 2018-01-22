@@ -114,19 +114,113 @@
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
+#pragma mark - Provide Sphere Data
+-(void) sphereData
+{
+    radius *= zoom;
+    
+    // Vertex array
+    for (int i = 0; i <= latitudeBands; i++) {
+        float theta = i * M_PI / latitudeBands;
+        float sinTheta = sin(theta);
+        float cosTheta = cos(theta);
+        
+        for (int j = 0; j <= longitudeBands; j++) {
+            float phi = j * 2 * M_PI / longitudeBands;
+            float sinPhi = sin(phi);
+            float cosPhi = cos(phi);
+            
+            float x = cosPhi * sinTheta;
+            float y = cosTheta;
+            float z = sinPhi * sinTheta;
+            float u = 1 - (j / longitudeBands);
+            float v = 1 - (i / latitudeBands);
+            
+            textureCoordData[totalTextureCoord] = u;
+            textureCoordData[totalTextureCoord+1] = v;
+            
+            verticesPosition[totalVerticesPosition] = radius*x;
+            verticesPosition[totalVerticesPosition+1] = radius*y;
+            verticesPosition[totalVerticesPosition+2] = radius*z;
+            totalTextureCoord += 2;
+            totalVerticesPosition += 3;
+        }
+    }
+    
+    // Index array
+    for (int i = 0; i < latitudeBands; i++) {
+        for (int longNumber = 0; longNumber < longitudeBands; longNumber++) {
+            int first = (i * (longitudeBands + 1)) + longNumber;
+            int second = first + longitudeBands + 1;
+            
+            verticesIndexData[totalVerticesIndex] = first;
+            verticesIndexData[totalVerticesIndex+1] = second;
+            verticesIndexData[totalVerticesIndex+2] = first + 1;
+            
+            verticesIndexData[totalVerticesIndex+3] = second;
+            verticesIndexData[totalVerticesIndex+4] = second + 1;
+            verticesIndexData[totalVerticesIndex+5] = first + 1;
+        }
+    }
+}
+
 #pragma mark - Interface OpenGL Function
--(void) initOpenGLContext
+-(void) initDefaultOpenGLData
 {
     
+}
+
+-(void) initOpenGLContext
+{
+    EAGLRenderingAPI api = kEAGLRenderingAPIOpenGLES2;
+    _context = [[EAGLContext alloc] initWithAPI:api];
+    if (!_context) {
+        NSLog(@"Failed to initialize OpenGLES 2.0 context");
+        exit(1);
+    }
+    
+    if (![EAGLContext setCurrentContext:_context]) {
+        NSLog(@"Failed to set current OpenGL context");
+        exit(1);
+    }
+}
+
+-(void) setupOpenGLViewport
+{
+    float dy = (width - height)/2;
+    glViewport(0, -dy, width, height);
+    
+    aspect = width/height;
+    
+    direction = 0.01*sqrt(width*width + height*height)/360;
+    
+    if(aspect>1) {
+        zoom = 1/aspect;
+    }
 }
 
 -(void) setupOpenGLMatrix
 {
     // Create View-Model Matrix
     GLKMatrix4 Vmatrix = GLKMatrix4MakeLookAt(0, 0, -1, 0, 0, 0, 0, 1, 0);
+    
+    // Create Transform Matrix
     GLKMatrix4 tmp = [YFXMatrix identity];
     GLKMatrix4 Mmatrix = GLKMatrix4Rotate(tmp, span, 0, 1, 0);
+    Mmatrix = GLKMatrix4Rotate(Mmatrix, tilt, 1, 0, 0);
+    Mmatrix = GLKMatrix4Translate(Mmatrix, 0, 0, 1);
     
+    // Create Model View matrix
+    modelViewMatrix = GLKMatrix4Multiply(Mmatrix, Vmatrix);
+    
+    // Create Projection Matrix
+    projectionMatrix = GLKMatrix4MakePerspective(M_PI_4, width/height, 0.1, 100);
+}
+
+-(void) setupOpenGLBuffer
+{
+    _context
+    glBufferData(<#GLenum target#>, <#GLsizeiptr size#>, <#const GLvoid *data#>, <#GLenum usage#>)
 }
 
 -(void) startRendered

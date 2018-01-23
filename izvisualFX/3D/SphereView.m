@@ -8,9 +8,120 @@
 
 #import "SphereView.h"
 
+@implementation SphereModel
+
+-(instancetype) initWithRadius:(GLfloat) radius withLati:(int) latitudeBands withLong:(int) longitudeBands
+{
+    self = [super init];
+    if(self){
+        totalTextureCoord       = 2*latitudeBands*longitudeBands;
+        totalVerticesPosition   = 3*latitudeBands*longitudeBands;
+        totalVerticesIndex      = 6*latitudeBands*longitudeBands;
+        
+        textureCoordData    = (GLfloat *)malloc(totalTextureCoord*sizeof(GLfloat));
+        verticesPosition    = (GLfloat *)malloc(totalVerticesPosition*sizeof(GLfloat));
+        verticesIndexData   = (GLint *)malloc(totalVerticesIndex*sizeof(GLint));
+        
+        [self initSphereDataWithRadius:radius withLati:latitudeBands withLong:longitudeBands];
+    }
+    return self;
+}
+
+-(void) initSphereDataWithRadius:(float) radius withLati:(int) latitudeBands withLong:(int) longitudeBands
+{
+    int index1 = 0;
+    int index2 = 0;
+    int index3 = 0;
+    // Vertex array
+    for (int i = 0; i <= latitudeBands; i++) {
+        float theta = i * M_PI / latitudeBands;
+        float sinTheta = sin(theta);
+        float cosTheta = cos(theta);
+        
+        for (int j = 0; j <= longitudeBands; j++) {
+            float phi = j * 2 * M_PI / longitudeBands;
+            float sinPhi = sin(phi);
+            float cosPhi = cos(phi);
+            
+            float x = cosPhi * sinTheta;
+            float y = cosTheta;
+            float z = sinPhi * sinTheta;
+            float u = 1 - (j / longitudeBands);
+            float v = 1 - (i / latitudeBands);
+            
+            textureCoordData[index1] = u;
+            textureCoordData[index1+1] = v;
+            
+            verticesPosition[index2] = radius*x;
+            verticesPosition[index2+1] = radius*y;
+            verticesPosition[index2+2] = radius*z;
+            index1 += 2;
+            index2 += 3;
+        }
+    }
+    
+    // Index array
+    for (int i = 0; i < latitudeBands; i++) {
+        for (int longNumber = 0; longNumber < longitudeBands; longNumber++) {
+            int first = (i * (longitudeBands + 1)) + longNumber;
+            int second = first + longitudeBands + 1;
+            
+            verticesIndexData[index3] = first;
+            verticesIndexData[index3+1] = second;
+            verticesIndexData[index3+2] = first + 1;
+            
+            verticesIndexData[index3+3] = second;
+            verticesIndexData[index3+4] = second + 1;
+            verticesIndexData[index3+5] = first + 1;
+            
+            index3 += 6;
+        }
+    }
+}
+
+-(void) freeBufferData
+{
+    free(textureCoordData);
+    free(verticesPosition);
+    free(verticesPosition);
+}
+
+-(unsigned int) getTextureCoordDataSize
+{
+    return totalTextureCoord*sizeof(GLfloat);
+}
+
+-(unsigned int) getVerticesPositionSize
+{
+    return totalVerticesPosition*sizeof(GLfloat);
+}
+
+-(unsigned int) getVerticesIndexDataSize
+{
+    return totalVerticesIndex*sizeof(GLint);
+}
+
+-(GLfloat*) getTextureCoordData
+{
+    return textureCoordData;
+}
+
+-(GLfloat*) getVerticesPosition
+{
+    return verticesPosition;
+}
+
+-(GLint*) getVerticesIndexData
+{
+    return verticesIndexData;
+}
+
+@end
+
 @implementation SphereView
 
 @synthesize displayLink = _displayLink;
+@synthesize data_model  = _data_model;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -115,59 +226,11 @@
 }
 
 #pragma mark - Provide Sphere Data
--(void) sphereData
-{
-    radius *= zoom;
-    
-    // Vertex array
-    for (int i = 0; i <= latitudeBands; i++) {
-        float theta = i * M_PI / latitudeBands;
-        float sinTheta = sin(theta);
-        float cosTheta = cos(theta);
-        
-        for (int j = 0; j <= longitudeBands; j++) {
-            float phi = j * 2 * M_PI / longitudeBands;
-            float sinPhi = sin(phi);
-            float cosPhi = cos(phi);
-            
-            float x = cosPhi * sinTheta;
-            float y = cosTheta;
-            float z = sinPhi * sinTheta;
-            float u = 1 - (j / longitudeBands);
-            float v = 1 - (i / latitudeBands);
-            
-            textureCoordData[totalTextureCoord] = u;
-            textureCoordData[totalTextureCoord+1] = v;
-            
-            verticesPosition[totalVerticesPosition] = radius*x;
-            verticesPosition[totalVerticesPosition+1] = radius*y;
-            verticesPosition[totalVerticesPosition+2] = radius*z;
-            totalTextureCoord += 2;
-            totalVerticesPosition += 3;
-        }
-    }
-    
-    // Index array
-    for (int i = 0; i < latitudeBands; i++) {
-        for (int longNumber = 0; longNumber < longitudeBands; longNumber++) {
-            int first = (i * (longitudeBands + 1)) + longNumber;
-            int second = first + longitudeBands + 1;
-            
-            verticesIndexData[totalVerticesIndex] = first;
-            verticesIndexData[totalVerticesIndex+1] = second;
-            verticesIndexData[totalVerticesIndex+2] = first + 1;
-            
-            verticesIndexData[totalVerticesIndex+3] = second;
-            verticesIndexData[totalVerticesIndex+4] = second + 1;
-            verticesIndexData[totalVerticesIndex+5] = first + 1;
-        }
-    }
-}
 
 #pragma mark - Interface OpenGL Function
 -(void) initDefaultOpenGLData
 {
-    
+    _data_model = [[SphereModel alloc] initWithRadius:radius withLati:latitudeBands withLong:longitudeBands];
 }
 
 -(void) initOpenGLContext
@@ -219,8 +282,17 @@
 
 -(void) setupOpenGLBuffer
 {
-    _context
-    glBufferData(<#GLenum target#>, <#GLsizeiptr size#>, <#const GLvoid *data#>, <#GLenum usage#>)
+    glGenBuffers(1, &verticesPositionBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, verticesPositionBuffer);
+    glBufferData(GL_ARRAY_BUFFER, [_data_model getVerticesPositionSize], [_data_model getVerticesPosition], GL_STATIC_DRAW);
+    
+    glGenBuffers(1, &textureCoordBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, textureCoordBuffer);
+    glBufferData(GL_ARRAY_BUFFER, [_data_model getTextureCoordDataSize], [_data_model getTextureCoordData], GL_STATIC_DRAW);
+    
+    glGenBuffers(1, &verticesPositionIndexBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, verticesPositionIndexBuffer);
+    glBufferData(GL_ARRAY_BUFFER, [_data_model getVerticesIndexDataSize], [_data_model getVerticesIndexData], GL_STATIC_DRAW);
 }
 
 -(void) startRendered

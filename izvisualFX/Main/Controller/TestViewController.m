@@ -24,8 +24,6 @@
     self.view.backgroundColor = [UIColor blackColor];
     self.title = @"Demo";
     [self showDemo];
-    
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

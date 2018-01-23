@@ -9,6 +9,30 @@
 #import <UIKit/UIKit.h>
 #import "Utils.h"
 
+@interface  SphereModel:NSObject
+{
+    GLfloat *textureCoordData;
+    GLfloat *verticesPosition;
+    GLint *verticesIndexData;
+    
+    int totalTextureCoord;
+    int totalVerticesPosition;
+    int totalVerticesIndex;
+}
+
+-(instancetype) initWithRadius:(GLfloat) radius withLati:(int) latitudeBands withLong:(int) longitudeBands;
+-(void) freeBufferData;
+
+-(unsigned int) getTextureCoordDataSize;
+-(unsigned int) getVerticesPositionSize;
+-(unsigned int) getVerticesIndexDataSize;
+
+-(GLfloat*) getTextureCoordData;
+-(GLfloat*) getVerticesPosition;
+-(GLint*) getVerticesIndexData;
+
+@end
+
 @interface SphereView : UIView
 {
     float span;
@@ -20,18 +44,12 @@
     float aspect;
     float direction;
     
-    float *textureCoordData;
-    float *verticesPosition;
-    int *verticesIndexData;
-    int totalTextureCoord;
-    int totalVerticesPosition;
-    int totalVerticesIndex;
-    
     int latitudeBands;
     int longitudeBands;
     
     GLuint verticesPositionBuffer;
     GLint textureCoordBuffer;
+    GLint verticesPositionIndexBuffer;
     
     CAEAGLLayer* _eaglLayer;
     EAGLContext* _context;
@@ -40,6 +58,7 @@
     GLKMatrix4 projectionMatrix;
 }
 @property(nonatomic, retain) CADisplayLink* displayLink;
+@property(nonatomic, retain) SphereModel* data_model;
 
 +(Class) layerClass;
 

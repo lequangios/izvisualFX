@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		631742782011E85E0085DFE2 /* MovingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 631742772011E85E0085DFE2 /* MovingViewController.m */; };
+		639B467E201704EA003A423E /* ShaderUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 639B467D201704EA003A423E /* ShaderUtils.m */; };
 		65344338201239C90091EDCF /* SphereView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65344337201239C90091EDCF /* SphereView.m */; };
 		6534433B201241820091EDCF /* yfxSphere.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6534433A201241820091EDCF /* yfxSphere.vsh */; };
 		6534433D201242380091EDCF /* yfxSphere.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6534433C201242380091EDCF /* yfxSphere.fsh */; };
@@ -51,6 +52,8 @@
 /* Begin PBXFileReference section */
 		631742762011E85E0085DFE2 /* MovingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovingViewController.h; sourceTree = "<group>"; };
 		631742772011E85E0085DFE2 /* MovingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovingViewController.m; sourceTree = "<group>"; };
+		639B467C201704E9003A423E /* ShaderUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderUtils.h; sourceTree = "<group>"; };
+		639B467D201704EA003A423E /* ShaderUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShaderUtils.m; sourceTree = "<group>"; };
 		653443352012394B0091EDCF /* 3DView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 3DView.h; sourceTree = "<group>"; };
 		65344336201239C90091EDCF /* SphereView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SphereView.h; sourceTree = "<group>"; };
 		65344337201239C90091EDCF /* SphereView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SphereView.m; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 				65B128E920021B0900DB4CB4 /* Utils.h */,
 				65F5DE362014AE7600489DEF /* YFXMatrix.h */,
 				65F5DE372014AE7600489DEF /* YFXMatrix.m */,
+				639B467C201704E9003A423E /* ShaderUtils.h */,
+				639B467D201704EA003A423E /* ShaderUtils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -396,6 +401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				639B467E201704EA003A423E /* ShaderUtils.m in Sources */,
 				65F5DE382014AE7600489DEF /* YFXMatrix.m in Sources */,
 				65B128BA20021A6700DB4CB4 /* ViewController.m in Sources */,
 				65B128F420021B0A00DB4CB4 /* YFX.m in Sources */,

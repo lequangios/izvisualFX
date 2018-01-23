@@ -110,7 +110,6 @@
     glShaderSource(*shader, 1, &source, NULL);
     glCompileShader(*shader);
     
-#if defined(DEBUG)
     GLint logLength;
     glGetShaderiv(*shader, GL_INFO_LOG_LENGTH, &logLength);
     if (logLength > 0) {
@@ -119,7 +118,6 @@
         NSLog(@"Shader compile log:\n%s", log);
         free(log);
     }
-#endif
     
     glGetShaderiv(*shader, GL_COMPILE_STATUS, &status);
     if (status == 0) {
@@ -135,7 +133,6 @@
     GLint status;
     glLinkProgram(prog);
     
-#if defined(DEBUG)
     GLint logLength;
     glGetProgramiv(prog, GL_INFO_LOG_LENGTH, &logLength);
     if (logLength > 0) {
@@ -144,7 +141,6 @@
         NSLog(@"Program link log:\n%s", log);
         free(log);
     }
-#endif
     
     glGetProgramiv(prog, GL_LINK_STATUS, &status);
     if (status == 0) {

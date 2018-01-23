@@ -16,6 +16,7 @@
 }
 
 -(instancetype) initWithVertex:(NSString*) vertex_name andWithFrag:(NSString*) fragment_name;
+-(BOOL) loadShaders;
 -(GLuint) getVertexShader;
 -(GLuint) getFragmentShader;
 -(GLuint) getProgramShader;

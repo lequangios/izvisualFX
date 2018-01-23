@@ -15,10 +15,11 @@
 #include <Accelerate/Accelerate.h>
 #import <Metal/Metal.h>
 #import <MetalPerformanceShaders/MetalPerformanceShaders.h>
-
 #import <CoreGraphics/CoreGraphics.h>
+
 #import "UIColor+FX.h"
 #import "YFX.h"
 #import "YFXMatrix.h"
+#import "ShaderUtils.h"
 
 #endif /* Utils_h */

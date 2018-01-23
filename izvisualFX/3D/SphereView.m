@@ -116,12 +116,23 @@
     return verticesIndexData;
 }
 
+-(NSString*) getVertexShaderPathName
+{
+    return @"yfxSphere";
+}
+
+-(NSString*) getFragmentShaderPathName
+{
+    return @"yfxSphere";
+}
+
 @end
 
 @implementation SphereView
 
 @synthesize displayLink = _displayLink;
 @synthesize data_model  = _data_model;
+@synthesize shader_model = _shader_model;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -165,64 +176,64 @@
 
 -(void) setupRenderBuffer
 {
-    glGenRenderbuffers(1, &_colorRenderBuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
-    [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:_eaglLayer];
+//    glGenRenderbuffers(1, &_colorRenderBuffer);
+//    glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
+//    [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:_eaglLayer];
 }
 
 -(void) setupFrameBuffer
 {
-    GLuint framebuffer;
-    glGenFramebuffers(1, &framebuffer);
-    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
-                              GL_RENDERBUFFER, _colorRenderBuffer);
+//    GLuint framebuffer;
+//    glGenFramebuffers(1, &framebuffer);
+//    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+//    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
+//                              GL_RENDERBUFFER, _colorRenderBuffer);
 }
 
 -(GLuint)compileShader:(NSString*)shaderName withType:(GLenum)shaderType {
     
 
-    NSString* shaderPath = [[NSBundle mainBundle] pathForResource:shaderName
-                                                           ofType:@"glsl"];
-    NSError* error;
-    NSString* shaderString = [NSString stringWithContentsOfFile:shaderPath
-                                                       encoding:NSUTF8StringEncoding error:&error];
-    if (!shaderString) {
-        NSLog(@"Error loading shader: %@", error.localizedDescription);
-        exit(1);
-    }
-    
-
-    GLuint shaderHandle = glCreateShader(shaderType);
-    
-
-    const char * shaderStringUTF8 = [shaderString UTF8String];
-    int shaderStringLength = (int)[shaderString length];
-    glShaderSource(shaderHandle, 1, &shaderStringUTF8, &shaderStringLength);
-    
-   
-    glCompileShader(shaderHandle);
-    
-  
-    GLint compileSuccess;
-    glGetShaderiv(shaderHandle, GL_COMPILE_STATUS, &compileSuccess);
-    if (compileSuccess == GL_FALSE) {
-        GLchar messages[256];
-        glGetShaderInfoLog(shaderHandle, sizeof(messages), 0, &messages[0]);
-        NSString *messageString = [NSString stringWithUTF8String:messages];
-        NSLog(@"%@", messageString);
-        exit(1);
-    }
-    
-    return shaderHandle;
+//    NSString* shaderPath = [[NSBundle mainBundle] pathForResource:shaderName
+//                                                           ofType:@"glsl"];
+//    NSError* error;
+//    NSString* shaderString = [NSString stringWithContentsOfFile:shaderPath
+//                                                       encoding:NSUTF8StringEncoding error:&error];
+//    if (!shaderString) {
+//        NSLog(@"Error loading shader: %@", error.localizedDescription);
+//        exit(1);
+//    }
+//
+//
+//    GLuint shaderHandle = glCreateShader(shaderType);
+//
+//
+//    const char * shaderStringUTF8 = [shaderString UTF8String];
+//    int shaderStringLength = (int)[shaderString length];
+//    glShaderSource(shaderHandle, 1, &shaderStringUTF8, &shaderStringLength);
+//
+//
+//    glCompileShader(shaderHandle);
+//
+//
+//    GLint compileSuccess;
+//    glGetShaderiv(shaderHandle, GL_COMPILE_STATUS, &compileSuccess);
+//    if (compileSuccess == GL_FALSE) {
+//        GLchar messages[256];
+//        glGetShaderInfoLog(shaderHandle, sizeof(messages), 0, &messages[0]);
+//        NSString *messageString = [NSString stringWithUTF8String:messages];
+//        NSLog(@"%@", messageString);
+//        exit(1);
+//    }
+//
+    return 1;
     
 }
 
 -(void) render
 {
-    glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
-    glClear(GL_COLOR_BUFFER_BIT);
-    [_context presentRenderbuffer:GL_RENDERBUFFER];
+//    glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
+//    glClear(GL_COLOR_BUFFER_BIT);
+//    [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
 #pragma mark - Provide Sphere Data
@@ -293,6 +304,28 @@
     glGenBuffers(1, &verticesPositionIndexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, verticesPositionIndexBuffer);
     glBufferData(GL_ARRAY_BUFFER, [_data_model getVerticesIndexDataSize], [_data_model getVerticesIndexData], GL_STATIC_DRAW);
+}
+
+-(void) initOpenGLShader
+{
+    _shader_model = [[ShaderUtils alloc] initWithVertex:[_data_model getVertexShaderPathName] andWithFrag:[_data_model getFragmentShaderPathName]];
+    is_shader_loaded = [_shader_model loadShaders];
+}
+
+-(void) setupOpenGLShader
+{
+    if(is_shader_loaded == NO)
+    {
+        // Get-set Shader Uniform
+        GLuint uPMatrix = glGetUniformLocation([_shader_model getProgramShader], [@"uPMatrix" cStringUsingEncoding:NSUTF8StringEncoding]);
+        glUniformMatrix4fv(uPMatrix, 1, false, projectionMatrix.m);
+        
+        GLuint uMVMatrix = glGetUniformLocation([_shader_model getProgramShader], [@"uMVMatrix" cStringUsingEncoding:NSUTF8StringEncoding]);
+        glUniformMatrix4fv(uMVMatrix, 1, false, modelViewMatrix.m);
+        
+        // Get-set Shader Attribute
+        
+    }
 }
 
 -(void) startRendered

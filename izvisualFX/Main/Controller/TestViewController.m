@@ -41,6 +41,7 @@
 {
     _sphere = [[SphereView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-64)];
     [self.view addSubview:_sphere];
+    [_sphere initRendered];
 }
 
 /*

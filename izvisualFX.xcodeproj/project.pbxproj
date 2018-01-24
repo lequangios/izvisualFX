@@ -23,6 +23,7 @@
 		65B128F320021B0A00DB4CB4 /* UIColor+FX.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B128E820021B0900DB4CB4 /* UIColor+FX.m */; };
 		65B128F420021B0A00DB4CB4 /* YFX.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B128EC20021B0900DB4CB4 /* YFX.m */; };
 		65B128F520021B0A00DB4CB4 /* YFXSnow.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B128F020021B0A00DB4CB4 /* YFXSnow.m */; };
+		65B4B8FB2018D60800F5AF63 /* Earth.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B4B8FA2018D60700F5AF63 /* Earth.png */; };
 		65DB5449200F85AC00F13399 /* AnimateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DB5448200F85AC00F13399 /* AnimateViewController.m */; };
 		65E36BC2200A0E130053F984 /* DrawBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E36BC1200A0E130053F984 /* DrawBoard.m */; };
 		65E36BC5200A0EB70053F984 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E36BC4200A0EB70053F984 /* CoreGraphics.framework */; };
@@ -84,6 +85,7 @@
 		65B128EF20021B0A00DB4CB4 /* YFXSnow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFXSnow.h; sourceTree = "<group>"; };
 		65B128F020021B0A00DB4CB4 /* YFXSnow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFXSnow.m; sourceTree = "<group>"; };
 		65B128F120021B0A00DB4CB4 /* 2DView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 2DView.h; sourceTree = "<group>"; };
+		65B4B8FA2018D60700F5AF63 /* Earth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Earth.png; sourceTree = "<group>"; };
 		65DB5447200F85AC00F13399 /* AnimateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimateViewController.h; sourceTree = "<group>"; };
 		65DB5448200F85AC00F13399 /* AnimateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimateViewController.m; sourceTree = "<group>"; };
 		65E36BC0200A0E130053F984 /* DrawBoard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawBoard.h; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		653443392012412D0091EDCF /* Shader */ = {
 			isa = PBXGroup;
 			children = (
+				65B4B8FA2018D60700F5AF63 /* Earth.png */,
 				6534433A201241820091EDCF /* yfxSphere.vsh */,
 				6534433C201242380091EDCF /* yfxSphere.fsh */,
 			);
@@ -372,6 +375,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65B4B8FB2018D60800F5AF63 /* Earth.png in Resources */,
 				6534433D201242380091EDCF /* yfxSphere.fsh in Resources */,
 				65B128C220021A6700DB4CB4 /* LaunchScreen.storyboard in Resources */,
 				65B128BF20021A6700DB4CB4 /* Assets.xcassets in Resources */,

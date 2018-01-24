@@ -126,6 +126,11 @@
     return @"yfxSphere";
 }
 
+-(NSString*) getTextureImageName
+{
+    return @"Earth.png";
+}
+
 @end
 
 @implementation SphereView
@@ -138,11 +143,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setupLayer];
-        [self setupContext];
-        [self setupRenderBuffer];
-        [self setupFrameBuffer];
-        [self render];
+        [self initDefaultOpenGLData];
     }
     return self;
 }
@@ -152,95 +153,19 @@
     return [CAEAGLLayer class];
 }
 
--(void) setupLayer
-{
-    _eaglLayer = (CAEAGLLayer*) self.layer;
-    _eaglLayer.opaque = YES;
-    
-}
-
--(void) setupContext
-{
-    EAGLRenderingAPI api = kEAGLRenderingAPIOpenGLES2;
-    _context = [[EAGLContext alloc] initWithAPI:api];
-    if (!_context) {
-        NSLog(@"Failed to initialize OpenGLES 2.0 context");
-        exit(1);
-    }
-    
-    if (![EAGLContext setCurrentContext:_context]) {
-        NSLog(@"Failed to set current OpenGL context");
-        exit(1);
-    }
-}
-
--(void) setupRenderBuffer
-{
-//    glGenRenderbuffers(1, &_colorRenderBuffer);
-//    glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
-//    [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:_eaglLayer];
-}
-
--(void) setupFrameBuffer
-{
-//    GLuint framebuffer;
-//    glGenFramebuffers(1, &framebuffer);
-//    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
-//    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
-//                              GL_RENDERBUFFER, _colorRenderBuffer);
-}
-
--(GLuint)compileShader:(NSString*)shaderName withType:(GLenum)shaderType {
-    
-
-//    NSString* shaderPath = [[NSBundle mainBundle] pathForResource:shaderName
-//                                                           ofType:@"glsl"];
-//    NSError* error;
-//    NSString* shaderString = [NSString stringWithContentsOfFile:shaderPath
-//                                                       encoding:NSUTF8StringEncoding error:&error];
-//    if (!shaderString) {
-//        NSLog(@"Error loading shader: %@", error.localizedDescription);
-//        exit(1);
-//    }
-//
-//
-//    GLuint shaderHandle = glCreateShader(shaderType);
-//
-//
-//    const char * shaderStringUTF8 = [shaderString UTF8String];
-//    int shaderStringLength = (int)[shaderString length];
-//    glShaderSource(shaderHandle, 1, &shaderStringUTF8, &shaderStringLength);
-//
-//
-//    glCompileShader(shaderHandle);
-//
-//
-//    GLint compileSuccess;
-//    glGetShaderiv(shaderHandle, GL_COMPILE_STATUS, &compileSuccess);
-//    if (compileSuccess == GL_FALSE) {
-//        GLchar messages[256];
-//        glGetShaderInfoLog(shaderHandle, sizeof(messages), 0, &messages[0]);
-//        NSString *messageString = [NSString stringWithUTF8String:messages];
-//        NSLog(@"%@", messageString);
-//        exit(1);
-//    }
-//
-    return 1;
-    
-}
-
--(void) render
-{
-//    glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
-//    glClear(GL_COLOR_BUFFER_BIT);
-//    [_context presentRenderbuffer:GL_RENDERBUFFER];
-}
-
-#pragma mark - Provide Sphere Data
 
 #pragma mark - Interface OpenGL Function
 -(void) initDefaultOpenGLData
 {
+    latitudeBands = 30;
+    longitudeBands = 30;
+    radius = 0.5;
+    span = 0;
+    tilt = 0;
+    zoom = 1;
+    is_error = NO;
+    is_shader_loaded = NO;
+    
     _data_model = [[SphereModel alloc] initWithRadius:radius withLati:latitudeBands withLong:longitudeBands];
 }
 
@@ -335,7 +260,50 @@
         glVertexAttribPointer(aTextureCoord, 2, GL_FLOAT, GL_FALSE, 2*sizeof(GLfloat), 0);
         
         // Get set for Texture
+        GLuint uSampler = glGetUniformLocation([_shader_model getProgramShader], [@"uSampler" cStringUsingEncoding:NSUTF8StringEncoding]);
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, glTexture);
+        glUniform1i(uSampler, 0);
     }
+}
+
+-(BOOL) initOpenGLTexture
+{
+    CGImageRef spriteImage = [UIImage imageNamed:[_data_model getTextureImageName]].CGImage;
+    if (!spriteImage) {
+        NSLog(@"Failed to load image %@", [_data_model getTextureImageName]);
+        return NO;
+    }
+    
+    size_t width = CGImageGetWidth(spriteImage);
+    size_t height = CGImageGetHeight(spriteImage);
+    
+    spriteData = (GLubyte *) calloc(width*height*4, sizeof(GLubyte));
+    
+    CGContextRef spriteContext = CGBitmapContextCreate(spriteData, width, height, 8, width*4,
+                                                       CGImageGetColorSpace(spriteImage), kCGImageAlphaPremultipliedLast);
+    
+    CGContextDrawImage(spriteContext, CGRectMake(0, 0, width, height), spriteImage);
+    
+    CGContextRelease(spriteContext);
+    
+    glGenTextures(1, &glTexture);
+    glPixelStorei(GL_PACK_ALIGNMENT, YES);
+    
+    return YES;
+}
+
+-(void) setupOpenGLTexture
+{
+    glBindTexture(GL_TEXTURE_2D, glTexture);
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (int)width, (int)height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
+    glBindTexture(GL_TEXTURE_2D, 0);
+    
+    free(spriteData);
 }
 
 -(void) startRendered
@@ -344,9 +312,51 @@
     [_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
+-(void) initRendered
+{
+    [self initOpenGLContext];
+    [self setupOpenGLViewport];
+    [self setupOpenGLMatrix];
+    [self setupOpenGLBuffer];
+    [self initOpenGLShader];
+    is_error = ![self initOpenGLTexture];
+    if (is_error == NO)
+    {
+        [self setupOpenGLTexture];
+        [self setupOpenGLShader];
+        [self startRendered];
+    }
+}
+
+-(void) renderedContext
+{
+    [self setupOpenGLMatrix];
+    [self setupOpenGLShader];
+    [self drawOpenGLContext];
+    [self updateGraphics];
+}
+
+-(void) updateGraphics
+{
+    tilt += 0.01;
+}
+
+-(void) drawOpenGLContext
+{
+    if (is_error == YES) return;
+    glClearColor(0, 0, 0, 1);
+    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+    glEnable(GL_DEPTH_TEST);
+    
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, verticesPositionIndexBuffer);
+    glDrawElements(GL_TRIANGLES, [_data_model getVerticesIndexDataSize], GL_UNSIGNED_SHORT, 0);
+}
+
 #pragma mark - Relase Memory
 -(void)dealloc
 {
+    [_data_model freeBufferData];
+    
     _context = nil;
     if(_displayLink != nil)
     {

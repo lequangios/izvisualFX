@@ -21,6 +21,7 @@
 }
 
 -(instancetype) initWithRadius:(GLfloat) radius withLati:(int) latitudeBands withLong:(int) longitudeBands;
+
 -(void) freeBufferData;
 
 -(unsigned int) getTextureCoordDataSize;
@@ -33,6 +34,7 @@
 
 -(NSString*) getVertexShaderPathName;
 -(NSString*) getFragmentShaderPathName;
+-(NSString*) getTextureImageName;
 
 @end
 
@@ -51,10 +53,14 @@
     int longitudeBands;
     
     BOOL is_shader_loaded;
+    BOOL is_error;
     
     GLuint verticesPositionBuffer;
     GLuint textureCoordBuffer;
     GLuint verticesPositionIndexBuffer;
+    GLuint glTexture;
+    
+    GLubyte * spriteData;
     
     CAEAGLLayer* _eaglLayer;
     EAGLContext* _context;
@@ -70,12 +76,6 @@
 
 +(Class) layerClass;
 
--(void) setupLayer;
--(void) setupContext;
--(void) setupRenderBuffer;
--(void) setupFrameBuffer;
--(void) render;
-
 -(void) initDefaultOpenGLData;
 -(void) initOpenGLContext;
 -(void) setupOpenGLViewport;
@@ -83,10 +83,12 @@
 -(void) setupOpenGLBuffer;
 -(void) initOpenGLShader;
 -(void) setupOpenGLShader;
--(void) initOpenGLTexture;
+-(BOOL) initOpenGLTexture;
 -(void) setupOpenGLTexture;
 -(void) drawOpenGLContext;
--(void) update;
+-(void) updateGraphics;
 -(void) renderedContext;
 -(void) startRendered;
+-(void) initRendered;
+
 @end

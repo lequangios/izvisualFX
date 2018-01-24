@@ -324,7 +324,17 @@
         glUniformMatrix4fv(uMVMatrix, 1, false, modelViewMatrix.m);
         
         // Get-set Shader Attribute
+        GLuint aVertexPosition = glGetAttribLocation([_shader_model getProgramShader], [@"aVertexPosition" cStringUsingEncoding:NSUTF8StringEncoding]);
+        glEnableVertexAttribArray(aVertexPosition);
+        glBindBuffer(GL_ARRAY_BUFFER, verticesPositionBuffer);
+        glVertexAttribPointer(aVertexPosition, 3, GL_FLOAT, GL_FALSE, 3*sizeof(GLfloat), 0);
         
+        GLuint aTextureCoord = glGetAttribLocation([_shader_model getProgramShader], [@"aTextureCoord" cStringUsingEncoding:NSUTF8StringEncoding]);
+        glEnableVertexAttribArray(aTextureCoord);
+        glBindBuffer(GL_ARRAY_BUFFER, textureCoordBuffer);
+        glVertexAttribPointer(aTextureCoord, 2, GL_FLOAT, GL_FALSE, 2*sizeof(GLfloat), 0);
+        
+        // Get set for Texture
     }
 }
 

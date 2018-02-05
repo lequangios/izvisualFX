@@ -239,7 +239,7 @@
 
 -(void) setupOpenGLShader
 {
-    if(is_shader_loaded == NO)
+    if(is_shader_loaded == YES)
     {
         // Get-set Shader Uniform
         GLuint uPMatrix = glGetUniformLocation([_shader_model getProgramShader], [@"uPMatrix" cStringUsingEncoding:NSUTF8StringEncoding]);

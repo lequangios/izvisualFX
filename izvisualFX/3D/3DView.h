@@ -10,5 +10,6 @@
 #define _DView_h
 
 #import "SphereView.h"
+#import "SphereGird.h"
 
 #endif /* _DView_h */

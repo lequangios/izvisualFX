@@ -69,6 +69,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Setup UI
+-(void) setupUIWithFrame:(CGRect) frame
+{
+    
+}
+
 -(void) openDemoPage:(id) sender
 {
     DemoViewController* view = [[DemoViewController alloc] init];

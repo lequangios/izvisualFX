@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 typedef enum : int{
-    IpadLandcapse,
+    IpadLandcapse = 0,
     IpadLandcapseWithStatusBar,
     IpadPortrait,
     IpadPortraitWithStatusBar,
@@ -19,11 +19,21 @@ typedef enum : int{
     Iphone55Portrait,
     Iphone55Landcapse,
     IphoneXPortrait,
-    IphoneXLandcapse
+    IphoneXLandcapse,
+    ScreenTypeCount
 } YFXScreenType;
 
 @interface YFResourceManager : NSObject
 
++(YFXScreenType) getCurrentScreenType;
++(CGSize) getPointSizeTransformWithSize:(CGSize) size;
 +(CGSize) getPointSizeWithType:(YFXScreenType) type;
++(CGSize) getPointScaleWithType:(YFXScreenType) type from:(YFXScreenType) design_type;
++(NSString*) getSourceNameWithType:(YFXScreenType) type;
+
 +(float) getStatusBarWithType:(YFXScreenType) type;
++(float) getNavigationHeightWithType:(YFXScreenType) type;
++(float) getTabBarHeightWithType:(YFXScreenType) type;
++(float) getHomeIndicatorHeightWithType:(YFXScreenType) type;
+
 @end

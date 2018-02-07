@@ -31,10 +31,12 @@
         direction = 0;
         
         _content = [[UIScrollView alloc] init];
+        _content.backgroundColor = [UIColor clearColor];
         [self addSubview:_content];
         
         _blendmode = [[UIButton alloc] init];
         [_blendmode setBackgroundColor:[UIColor clearColor]];
+        _blendmode.imageView.contentMode = UIViewContentModeTopRight;
         [_blendmode setBackgroundImage:[[YFResourceManager shareInstance] imageForResource:@"blend" andType:@"png"] forState:UIControlStateNormal];
         [_content addSubview:_blendmode];
         

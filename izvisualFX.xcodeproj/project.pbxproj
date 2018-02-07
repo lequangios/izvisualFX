@@ -15,6 +15,7 @@
 		65344338201239C90091EDCF /* SphereView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65344337201239C90091EDCF /* SphereView.m */; };
 		6534433B201241820091EDCF /* yfxSphere.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6534433A201241820091EDCF /* yfxSphere.vsh */; };
 		6534433D201242380091EDCF /* yfxSphere.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6534433C201242380091EDCF /* yfxSphere.fsh */; };
+		65ABCEB2202B3F7700967A3A /* YFXButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 65ABCEB1202B3F7700967A3A /* YFXButton.m */; };
 		65B128B720021A6700DB4CB4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B128B620021A6700DB4CB4 /* AppDelegate.m */; };
 		65B128BA20021A6700DB4CB4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B128B920021A6700DB4CB4 /* ViewController.m */; };
 		65B128BD20021A6700DB4CB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B128BB20021A6700DB4CB4 /* Main.storyboard */; };
@@ -78,6 +79,8 @@
 		65344337201239C90091EDCF /* SphereView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SphereView.m; sourceTree = "<group>"; };
 		6534433A201241820091EDCF /* yfxSphere.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = yfxSphere.vsh; sourceTree = "<group>"; };
 		6534433C201242380091EDCF /* yfxSphere.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = yfxSphere.fsh; sourceTree = "<group>"; };
+		65ABCEB0202B3F7700967A3A /* YFXButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YFXButton.h; sourceTree = "<group>"; };
+		65ABCEB1202B3F7700967A3A /* YFXButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YFXButton.m; sourceTree = "<group>"; };
 		65B128B220021A6700DB4CB4 /* izvisualFX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = izvisualFX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B128B520021A6700DB4CB4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		65B128B620021A6700DB4CB4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 			children = (
 				63BC6AA5202AEA4000D3E0D6 /* MenuView.h */,
 				63BC6AA6202AEA4000D3E0D6 /* MenuView.m */,
+				65ABCEB0202B3F7700967A3A /* YFXButton.h */,
+				65ABCEB1202B3F7700967A3A /* YFXButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -510,6 +515,7 @@
 				631742782011E85E0085DFE2 /* MovingViewController.m in Sources */,
 				65B128B720021A6700DB4CB4 /* AppDelegate.m in Sources */,
 				65C2A1C9201CC48E004A4F62 /* YFXLiquidJewel.m in Sources */,
+				65ABCEB2202B3F7700967A3A /* YFXButton.m in Sources */,
 				65DB5449200F85AC00F13399 /* AnimateViewController.m in Sources */,
 				65E36BC2200A0E130053F984 /* DrawBoard.m in Sources */,
 			);

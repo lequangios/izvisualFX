@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "VisualizationFX.h"
+#import "MenuView.h"
+#import "RootStyle.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<MenuViewDelegate>
+{
+    YFResourceManager* manager;
+    RootStyle* style;
+}
+
+@property(nonatomic, retain) UIImageView* bgView;
+@property(nonatomic, retain) UIButton* menuBtn;
+@property(nonatomic, retain) MenuView* menuView;
 
 @end
 

@@ -8,6 +8,7 @@
 #ifndef VisualizationFX_h
 #define VisualizationFX_h
 
+#import "YFResourceManager.h"
 #import "2DView.h"
 #import "3DView.h"
 

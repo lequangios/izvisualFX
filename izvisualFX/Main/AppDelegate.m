@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "YFResourceManager.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[YFResourceManager shareInstance] setResourceWithDesignType:IphoneXPortrait];
     ViewController* root = [[ViewController alloc] initWithNibName:nil bundle:nil];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:root];
     return YES;

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		631742782011E85E0085DFE2 /* MovingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 631742772011E85E0085DFE2 /* MovingViewController.m */; };
 		639B467E201704EA003A423E /* ShaderUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 639B467D201704EA003A423E /* ShaderUtils.m */; };
+		63BC6A9F202AE42B00D3E0D6 /* Resource in Resources */ = {isa = PBXBuildFile; fileRef = 63BC6A9E202AE42B00D3E0D6 /* Resource */; };
+		63BC6AA3202AE5CF00D3E0D6 /* RootStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BC6AA2202AE5CF00D3E0D6 /* RootStyle.m */; };
+		63BC6AA7202AEA4000D3E0D6 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BC6AA6202AEA4000D3E0D6 /* MenuView.m */; };
 		65344338201239C90091EDCF /* SphereView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65344337201239C90091EDCF /* SphereView.m */; };
 		6534433B201241820091EDCF /* yfxSphere.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6534433A201241820091EDCF /* yfxSphere.vsh */; };
 		6534433D201242380091EDCF /* yfxSphere.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6534433C201242380091EDCF /* yfxSphere.fsh */; };
@@ -28,17 +31,11 @@
 		65C2A1B4201CB8B8004A4F62 /* YFXOctopus.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C2A1B3201CB8B8004A4F62 /* YFXOctopus.m */; };
 		65C2A1B7201CB8D3004A4F62 /* YFXFireFly.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C2A1B6201CB8D3004A4F62 /* YFXFireFly.m */; };
 		65C2A1BA201CC130004A4F62 /* YFXHouseBounceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C2A1B9201CC130004A4F62 /* YFXHouseBounceView.m */; };
-		65C2A1BD201CC1FC004A4F62 /* YFXHouseBounceView.js in Resources */ = {isa = PBXBuildFile; fileRef = 65C2A1BC201CC1FC004A4F62 /* YFXHouseBounceView.js */; };
 		65C2A1C0201CC379004A4F62 /* YFXFlowerPowerDoubled.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C2A1BF201CC379004A4F62 /* YFXFlowerPowerDoubled.m */; };
 		65C2A1C3201CC3C1004A4F62 /* YFXPinCircleSwirl.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C2A1C2201CC3C1004A4F62 /* YFXPinCircleSwirl.m */; };
 		65C2A1C6201CC428004A4F62 /* YFXTwistedAlchemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C2A1C5201CC428004A4F62 /* YFXTwistedAlchemy.m */; };
 		65C2A1C9201CC48E004A4F62 /* YFXLiquidJewel.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C2A1C8201CC48E004A4F62 /* YFXLiquidJewel.m */; };
 		65C2A1CC201CC4D5004A4F62 /* YFXTherapy.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C2A1CB201CC4D5004A4F62 /* YFXTherapy.m */; };
-		65C2A1D2201CC505004A4F62 /* YFXPinCircleSwirl.js in Resources */ = {isa = PBXBuildFile; fileRef = 65C2A1CD201CC504004A4F62 /* YFXPinCircleSwirl.js */; };
-		65C2A1D3201CC505004A4F62 /* YFXFlowerPowerDoubled.js in Resources */ = {isa = PBXBuildFile; fileRef = 65C2A1CE201CC504004A4F62 /* YFXFlowerPowerDoubled.js */; };
-		65C2A1D4201CC505004A4F62 /* YFXTherapy.js in Resources */ = {isa = PBXBuildFile; fileRef = 65C2A1CF201CC505004A4F62 /* YFXTherapy.js */; };
-		65C2A1D5201CC505004A4F62 /* YFXTwistedAlchemy.js in Resources */ = {isa = PBXBuildFile; fileRef = 65C2A1D0201CC505004A4F62 /* YFXTwistedAlchemy.js */; };
-		65C2A1D6201CC505004A4F62 /* YFXLiquidJewel.js in Resources */ = {isa = PBXBuildFile; fileRef = 65C2A1D1201CC505004A4F62 /* YFXLiquidJewel.js */; };
 		65DB5449200F85AC00F13399 /* AnimateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DB5448200F85AC00F13399 /* AnimateViewController.m */; };
 		65E36BC2200A0E130053F984 /* DrawBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E36BC1200A0E130053F984 /* DrawBoard.m */; };
 		65E36BC5200A0EB70053F984 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65E36BC4200A0EB70053F984 /* CoreGraphics.framework */; };
@@ -71,6 +68,11 @@
 		631742772011E85E0085DFE2 /* MovingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovingViewController.m; sourceTree = "<group>"; };
 		639B467C201704E9003A423E /* ShaderUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderUtils.h; sourceTree = "<group>"; };
 		639B467D201704EA003A423E /* ShaderUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShaderUtils.m; sourceTree = "<group>"; };
+		63BC6A9E202AE42B00D3E0D6 /* Resource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resource; sourceTree = "<group>"; };
+		63BC6AA1202AE5CF00D3E0D6 /* RootStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootStyle.h; sourceTree = "<group>"; };
+		63BC6AA2202AE5CF00D3E0D6 /* RootStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootStyle.m; sourceTree = "<group>"; };
+		63BC6AA5202AEA4000D3E0D6 /* MenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
+		63BC6AA6202AEA4000D3E0D6 /* MenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		653443352012394B0091EDCF /* 3DView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = 3DView.h; sourceTree = "<group>"; };
 		65344336201239C90091EDCF /* SphereView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SphereView.h; sourceTree = "<group>"; };
 		65344337201239C90091EDCF /* SphereView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SphereView.m; sourceTree = "<group>"; };
@@ -110,7 +112,6 @@
 		65C2A1B6201CB8D3004A4F62 /* YFXFireFly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YFXFireFly.m; sourceTree = "<group>"; };
 		65C2A1B8201CC130004A4F62 /* YFXHouseBounceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YFXHouseBounceView.h; sourceTree = "<group>"; };
 		65C2A1B9201CC130004A4F62 /* YFXHouseBounceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YFXHouseBounceView.m; sourceTree = "<group>"; };
-		65C2A1BC201CC1FC004A4F62 /* YFXHouseBounceView.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = YFXHouseBounceView.js; sourceTree = "<group>"; };
 		65C2A1BE201CC379004A4F62 /* YFXFlowerPowerDoubled.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YFXFlowerPowerDoubled.h; sourceTree = "<group>"; };
 		65C2A1BF201CC379004A4F62 /* YFXFlowerPowerDoubled.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YFXFlowerPowerDoubled.m; sourceTree = "<group>"; };
 		65C2A1C1201CC3C1004A4F62 /* YFXPinCircleSwirl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YFXPinCircleSwirl.h; sourceTree = "<group>"; };
@@ -121,11 +122,6 @@
 		65C2A1C8201CC48E004A4F62 /* YFXLiquidJewel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YFXLiquidJewel.m; sourceTree = "<group>"; };
 		65C2A1CA201CC4D5004A4F62 /* YFXTherapy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YFXTherapy.h; sourceTree = "<group>"; };
 		65C2A1CB201CC4D5004A4F62 /* YFXTherapy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YFXTherapy.m; sourceTree = "<group>"; };
-		65C2A1CD201CC504004A4F62 /* YFXPinCircleSwirl.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = YFXPinCircleSwirl.js; sourceTree = "<group>"; };
-		65C2A1CE201CC504004A4F62 /* YFXFlowerPowerDoubled.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = YFXFlowerPowerDoubled.js; sourceTree = "<group>"; };
-		65C2A1CF201CC505004A4F62 /* YFXTherapy.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = YFXTherapy.js; sourceTree = "<group>"; };
-		65C2A1D0201CC505004A4F62 /* YFXTwistedAlchemy.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = YFXTwistedAlchemy.js; sourceTree = "<group>"; };
-		65C2A1D1201CC505004A4F62 /* YFXLiquidJewel.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = YFXLiquidJewel.js; sourceTree = "<group>"; };
 		65DB5447200F85AC00F13399 /* AnimateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimateViewController.h; sourceTree = "<group>"; };
 		65DB5448200F85AC00F13399 /* AnimateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimateViewController.m; sourceTree = "<group>"; };
 		65E36BC0200A0E130053F984 /* DrawBoard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawBoard.h; sourceTree = "<group>"; };
@@ -184,6 +180,24 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		63BC6AA0202AE5A300D3E0D6 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				63BC6AA1202AE5CF00D3E0D6 /* RootStyle.h */,
+				63BC6AA2202AE5CF00D3E0D6 /* RootStyle.m */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		63BC6AA4202AEA2200D3E0D6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				63BC6AA5202AEA4000D3E0D6 /* MenuView.h */,
+				63BC6AA6202AEA4000D3E0D6 /* MenuView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		653443392012412D0091EDCF /* Shader */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,9 +232,11 @@
 		65B128B420021A6700DB4CB4 /* izvisualFX */ = {
 			isa = PBXGroup;
 			children = (
-				65C2A1BB201CC17C004A4F62 /* Resource */,
-				653443392012412D0091EDCF /* Shader */,
 				65B128ED20021B0900DB4CB4 /* VisualizationFX.h */,
+				63BC6AA4202AEA2200D3E0D6 /* View */,
+				63BC6AA0202AE5A300D3E0D6 /* Style */,
+				63BC6A9E202AE42B00D3E0D6 /* Resource */,
+				653443392012412D0091EDCF /* Shader */,
 				65B128EE20021B0A00DB4CB4 /* 2D */,
 				65B128F220021B0A00DB4CB4 /* 3D */,
 				65B128E720021B0900DB4CB4 /* Utils */,
@@ -273,9 +289,9 @@
 		65B128EE20021B0A00DB4CB4 /* 2D */ = {
 			isa = PBXGroup;
 			children = (
+				65B128F120021B0A00DB4CB4 /* 2DView.h */,
 				65B128EF20021B0A00DB4CB4 /* YFXSnow.h */,
 				65B128F020021B0A00DB4CB4 /* YFXSnow.m */,
-				65B128F120021B0A00DB4CB4 /* 2DView.h */,
 				65E36BC0200A0E130053F984 /* DrawBoard.h */,
 				65E36BC1200A0E130053F984 /* DrawBoard.m */,
 				65FAA174200B43E700BEFAF8 /* YFXFlyBubble.h */,
@@ -310,19 +326,6 @@
 				65C2A1AB201C566B004A4F62 /* SphereGird.m */,
 			);
 			path = 3D;
-			sourceTree = "<group>";
-		};
-		65C2A1BB201CC17C004A4F62 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				65C2A1CE201CC504004A4F62 /* YFXFlowerPowerDoubled.js */,
-				65C2A1D1201CC505004A4F62 /* YFXLiquidJewel.js */,
-				65C2A1CD201CC504004A4F62 /* YFXPinCircleSwirl.js */,
-				65C2A1CF201CC505004A4F62 /* YFXTherapy.js */,
-				65C2A1D0201CC505004A4F62 /* YFXTwistedAlchemy.js */,
-				65C2A1BC201CC1FC004A4F62 /* YFXHouseBounceView.js */,
-			);
-			path = Resource;
 			sourceTree = "<group>";
 		};
 		65E36BC3200A0EB70053F984 /* Frameworks */ = {
@@ -451,17 +454,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65C2A1D3201CC505004A4F62 /* YFXFlowerPowerDoubled.js in Resources */,
-				65C2A1D2201CC505004A4F62 /* YFXPinCircleSwirl.js in Resources */,
-				65C2A1D6201CC505004A4F62 /* YFXLiquidJewel.js in Resources */,
 				65B4B8FB2018D60800F5AF63 /* Earth.png in Resources */,
 				6534433D201242380091EDCF /* yfxSphere.fsh in Resources */,
 				65B128C220021A6700DB4CB4 /* LaunchScreen.storyboard in Resources */,
-				65C2A1BD201CC1FC004A4F62 /* YFXHouseBounceView.js in Resources */,
+				63BC6A9F202AE42B00D3E0D6 /* Resource in Resources */,
 				65B128BF20021A6700DB4CB4 /* Assets.xcassets in Resources */,
-				65C2A1D5201CC505004A4F62 /* YFXTwistedAlchemy.js in Resources */,
 				6534433B201241820091EDCF /* yfxSphere.vsh in Resources */,
-				65C2A1D4201CC505004A4F62 /* YFXTherapy.js in Resources */,
 				65B128BD20021A6700DB4CB4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,7 +487,9 @@
 			files = (
 				639B467E201704EA003A423E /* ShaderUtils.m in Sources */,
 				65F5DE382014AE7600489DEF /* YFXMatrix.m in Sources */,
+				63BC6AA7202AEA4000D3E0D6 /* MenuView.m in Sources */,
 				65B128BA20021A6700DB4CB4 /* ViewController.m in Sources */,
+				63BC6AA3202AE5CF00D3E0D6 /* RootStyle.m in Sources */,
 				65E6D37320289080003F46C2 /* YFResourceManager.m in Sources */,
 				65B128F420021B0A00DB4CB4 /* YFX.m in Sources */,
 				65C2A1C0201CC379004A4F62 /* YFXFlowerPowerDoubled.m in Sources */,

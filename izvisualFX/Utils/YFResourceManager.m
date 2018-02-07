@@ -19,19 +19,34 @@
 #define yfx_Iphone_X_Portrait                       CGSizeMake(375, 812)
 #define yfx_Iphone_X_Landcapse                      CGSizeMake(812, 375)
 
-#define yfx_Src                                         @"img/"
-#define yfx_Ipad_Landcapse_Src                          @"img/ipadland/"
-#define yfx_Ipad_Landcapse_With_StatusBar_Src           @"img/ipadland/"
-#define yfx_Ipad_Portrait_Src                           @"img/ipadport/"
-#define yfx_Ipad_Portrait_With_StatusBar_Src            @"img/ipadport/"
-#define yfx_Iphone_4inch_Portrait_Src                   @"img/4inch/"
-#define yfx_Iphone_47inch_Portrait_Src                  @"img/47inch/"
-#define yfx_Iphone_55inch_Portrait_Src                  @"img/55inchport/"
-#define yfx_Iphone_55inch_Landcapse_Src                 @"img/55inchland/"
-#define yfx_Iphone_X_Portrait_Src                       @"img/xport/"
-#define yfx_Iphone_X_Landcapse_Src                      @"img/xland/"
+#define yfx_Src                                         @"Resource/img/"
+#define yfx_Ipad_Landcapse_Src                          @"Resource/img/ipadland/"
+#define yfx_Ipad_Landcapse_With_StatusBar_Src           @"Resource/img/ipadland/"
+#define yfx_Ipad_Portrait_Src                           @"Resource/img/ipadport/"
+#define yfx_Ipad_Portrait_With_StatusBar_Src            @"Resource/img/ipadport/"
+#define yfx_Iphone_4inch_Portrait_Src                   @"Resource/img/4inch/"
+#define yfx_Iphone_47inch_Portrait_Src                  @"Resource/img/47inch/"
+#define yfx_Iphone_55inch_Portrait_Src                  @"Resource/img/55inchport/"
+#define yfx_Iphone_55inch_Landcapse_Src                 @"Resource/img/55inchland/"
+#define yfx_Iphone_X_Portrait_Src                       @"Resource/img/xport/"
+#define yfx_Iphone_X_Landcapse_Src                      @"Resource/img/xland/"
 
 @implementation YFResourceManager
+{
+    YFXScreenType design_type;
+}
+
+@synthesize resource_src            = _resource_src;
+@synthesize screen_type             = _screen_type;
+@synthesize screen_size             = _screen_size;
+@synthesize screen_scale            = _screen_scale;
+@synthesize status_bar_height       = _status_bar_height;
+@synthesize navi_height             = _navi_height;
+@synthesize tabbar_height           = _tabbar_height;
+@synthesize home_indicator_height   = _home_indicator_height;
+@synthesize is_ipad                 = _is_ipad;
+@synthesize is_landcapse            = _is_landcapse;
+@synthesize current_orientation     = _current_orientation;
 
 +(CGSize) getPointSizeTransformWithSize:(CGSize) size
 {
@@ -125,7 +140,7 @@
     float area = screen.size.width*screen.size.height;
     for(int i=0; i < ScreenTypeCount; i++) {
         size = [YFResourceManager getPointSizeWithType:i];
-        if(area == size.width*size.height){
+        if(area == size.width*size.height && screen.size.height == size.height){
             type = i;
             break;
         }
@@ -187,6 +202,81 @@
         size = 0;
     }
     return size;
+}
+
+-(instancetype) init
+{
+    self = [super init];
+    if(self){
+        _screen_type = Iphone47Portrait;
+        _resource_src = [YFResourceManager getSourceNameWithType:_screen_type];
+        _screen_size = [YFResourceManager getPointSizeWithType:_screen_type];
+        _screen_scale = [YFResourceManager getPointScaleWithType:_screen_type from:Iphone47Portrait];
+        _status_bar_height = [YFResourceManager getStatusBarWithType:_screen_type];
+        _navi_height = [YFResourceManager getNavigationHeightWithType:_screen_type];
+        _tabbar_height = [YFResourceManager getTabBarHeightWithType:_screen_type];
+        _home_indicator_height = [YFResourceManager getHomeIndicatorHeightWithType:_screen_type];
+        _is_landcapse = NO;
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) _is_ipad = YES;
+        else _is_ipad = NO;
+    }
+    return self;
+}
+
++(instancetype) shareInstance
+{
+    static YFResourceManager* appMethod = Nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        appMethod = [[self alloc] init];
+    });
+    return appMethod;
+}
+
+-(void) setResourceWithDesignType:(YFXScreenType)type
+{
+    design_type = type;
+    [self updateYFResourceManager];
+}
+
+-(void) updateYFResourceManager
+{
+    _current_orientation = [UIApplication sharedApplication].statusBarOrientation;
+    if(_current_orientation == UIDeviceOrientationLandscapeRight || _current_orientation == UIDeviceOrientationLandscapeLeft) _is_landcapse = YES;
+    else _is_landcapse = NO;
+    
+    [self setupYFResourceManager];
+}
+
+-(UIImage*) imageForResource:(NSString*) name andType:(NSString*) type
+{
+    name = [NSString stringWithFormat:@"%@%@",yfx_Src,name];
+    NSString *str = [[NSBundle mainBundle] pathForResource:name ofType:type];
+    UIImage *img = [[UIImage alloc] initWithContentsOfFile:str];
+    return img;
+}
+
+-(UIImage*) imageForResponsiveResource:(NSString*) name andType:(NSString*) type
+{
+    name = [NSString stringWithFormat:@"%@%@",_resource_src,name];
+    NSString *str = [[NSBundle mainBundle] pathForResource:name ofType:type];
+    UIImage *img = [[UIImage alloc] initWithContentsOfFile:str];
+    return img;
+}
+
+#pragma mark - private method
+-(void) setupYFResourceManager
+{
+    _screen_type = [YFResourceManager getCurrentScreenType];
+    _resource_src = [YFResourceManager getSourceNameWithType:_screen_type];
+    _screen_size = [YFResourceManager getPointSizeWithType:_screen_type];
+    _screen_scale = [YFResourceManager getPointScaleWithType:_screen_type from:design_type];
+    _status_bar_height = [YFResourceManager getStatusBarWithType:_screen_type];
+    _navi_height = [YFResourceManager getNavigationHeightWithType:_screen_type];
+    _tabbar_height = [YFResourceManager getTabBarHeightWithType:_screen_type];
+    _home_indicator_height = [YFResourceManager getHomeIndicatorHeightWithType:_screen_type];
 }
 
 @end

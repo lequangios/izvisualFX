@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YFXButton.h"
 
 @protocol MenuViewDelegate <NSObject>
 @optional
@@ -34,7 +35,7 @@
 @property(nonatomic, assign) CGPoint menu_padding;
 @property(nonatomic, weak) id<MenuViewDelegate> delegate;
 @property(nonatomic, retain) UIScrollView* content;
-@property(nonatomic, retain) UIButton* blendmode;
+@property(nonatomic, retain) YFXButton* blendmode;
 
 -(void) settingMenuWithFrame:(CGRect) frame;
 

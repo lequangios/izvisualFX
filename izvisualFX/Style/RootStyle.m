@@ -34,7 +34,7 @@
         
         _menu_view_size = CGSizeMake(manager.screen_size.width-100, manager.screen_size.height-2*_page_margin.y);
         _menu_view_point = CGPointMake(-_menu_view_size.width, _page_margin.y);
-        _menu_item_size = CGSizeMake(_menu_view_size.width-2*_page_margin.x, 40);
+        _menu_item_size = CGSizeMake(_menu_view_size.width-2*_page_margin.x, 50);
     }
     return self;
 }

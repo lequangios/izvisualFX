@@ -53,6 +53,7 @@ typedef enum : int{
 -(void) updateYFResourceManager;
 -(UIImage*) imageForResource:(NSString*) name andType:(NSString*) type;
 -(UIImage*) imageForResponsiveResource:(NSString*) name andType:(NSString*) type;
+-(UIImage*) imageRenderForResource:(NSString*) name andType:(NSString*) type;
 
 
 @end

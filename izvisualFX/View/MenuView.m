@@ -34,10 +34,11 @@
         _content.backgroundColor = [UIColor clearColor];
         [self addSubview:_content];
         
-        _blendmode = [[UIButton alloc] init];
+        _blendmode = [[YFXButton alloc] init];
         [_blendmode setBackgroundColor:[UIColor clearColor]];
-        _blendmode.imageView.contentMode = UIViewContentModeTopRight;
-        [_blendmode setBackgroundImage:[[YFResourceManager shareInstance] imageForResource:@"blend" andType:@"png"] forState:UIControlStateNormal];
+        [_blendmode setImage:[[YFResourceManager shareInstance] imageRenderForResource:@"blend" andType:@"png"] forState:UIControlStateNormal];
+        [_blendmode setTitle:@"Blend Mode" forState:UIControlStateNormal];
+        [_blendmode setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_content addSubview:_blendmode];
         
     }
@@ -51,7 +52,11 @@
     self.backgroundColor = [UIColor whiteColor];
     snap_end = self.frame.size.width;
     
-    _blendmode.frame = CGRectMake(0, 0, _menu_item_size.width, _menu_item_size.height);
+    [_blendmode settingImagePostion:IconLeft];
+    [_blendmode settingButtonImageSize:CGSizeMake(32, 32)];
+    [_blendmode settingButtonLabelSize:CGSizeMake(100, 32)];
+    _blendmode.frame = CGRectMake(_menu_padding.x, 0, _menu_item_size.width, _menu_item_size.height);
+    _blendmode.backgroundColor = [UIColor purpleColor];
     _content.frame = CGRectMake(0, _menu_padding.y, frame.size.width, frame.size.height - 2*_menu_padding.y);
 }
 

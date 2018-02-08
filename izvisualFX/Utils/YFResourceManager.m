@@ -266,6 +266,14 @@
     return img;
 }
 
+-(UIImage*) imageRenderForResource:(NSString*) name andType:(NSString*) type
+{
+    name = [NSString stringWithFormat:@"%@%@",yfx_Src,name];
+    NSString *str = [[NSBundle mainBundle] pathForResource:name ofType:type];
+    UIImage *img = [[UIImage alloc] initWithContentsOfFile:str];
+    return [img imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+}
+
 #pragma mark - private method
 -(void) setupYFResourceManager
 {

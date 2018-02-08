@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+
 typedef enum : int{
     IconTop = 0,
-    IconCenter,
     IconBottom,
     IconLeft,
     IconRight
@@ -17,13 +17,17 @@ typedef enum : int{
 
 @interface YFXButton : UIButton
 {
-    CGSize image_size;
+    CGPoint content_padding;
+    CGSize icon_size;
+    CGSize btn_size;
+    CGSize label_size;
     YFXButtonIconPosition icon_postion;
 }
 
 @property(nonatomic, retain) NSString* button_name;
 
 -(void) settingButtonImageSize:(CGSize) size;
+-(void) settingButtonLabelSize:(CGSize) size;
 -(void) settingImagePostion:(YFXButtonIconPosition) position;
 -(void) setFrame:(CGRect)frame;
 
